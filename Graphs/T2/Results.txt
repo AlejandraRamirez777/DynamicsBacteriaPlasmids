@@ -1,0 +1,60 @@
+Ini: 20
+Fixed: 29.0
+Total Win A (29.0) = 1
+Total Win B (20) = 299
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 8.0
+Total Win A (8.0) = 600
+Total Win B (20) = 0
+Win: 8.0
+------------------- 
+Ini: 8.0
+Fixed: 9.0
+Total Win A (9.0) = 77
+Total Win B (8.0) = 523
+Win: 8.0
+------------------- 
+Ini: 8.0
+Fixed: 10.0
+Total Win A (10.0) = 10
+Total Win B (8.0) = 590
+Win: 8.0
+------------------- 
+Ini: 8.0
+Fixed: 6.0
+Total Win A (6.0) = 600
+Total Win B (8.0) = 0
+Win: 6.0
+------------------- 
+Ini: 6.0
+Fixed: 7.0
+Total Win A (7.0) = 26
+Total Win B (6.0) = 574
+Win: 6.0
+------------------- 
+Ini: 6.0
+Fixed: 8.0
+Total Win A (8.0) = 0
+Total Win B (6.0) = 600
+Win: 6.0
+------------------- 
+Ini: 6.0
+Fixed: 7.0
+Total Win A (7.0) = 37
+Total Win B (6.0) = 563
+Win: 6.0
+------------------- 
+Ini: 6.0
+Fixed: 9.0
+Total Win A (9.0) = 0
+Total Win B (6.0) = 600
+Win: 6.0
+------------------- 
+Ini: 6.0
+Fixed: 8.0
+Total Win A (8.0) = 1
+Total Win B (6.0) = 599
+Win: 6.0
+------------------- 

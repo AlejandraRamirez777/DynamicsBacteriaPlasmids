@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import time
 
 # Number of groups
 NN = 1000
@@ -24,7 +25,10 @@ def CCmut(h,nnIni):
         return s
 
     SI = randDFE()
-    print "DFE_value: " + str(SI)
+    text_file = open("Graphs/Log_Mutation.txt", "a+")
+    n = text_file.write("DFE_value: " + str(SI)+"\n")
+    text_file.close()
+    #print "DFE_value: " + str(SI)
 
     #Na of mutation that arised
     #Param: s Selection coefficient
@@ -42,7 +46,10 @@ def CCmut(h,nnIni):
         return Na
 
     Naa = Na(SI,nnIni,h)
-    print "Na_Equivalent: "+ str(Naa)
+    text_file = open("Graphs/Log_Mutation.txt", "a+")
+    n = text_file.write("Na_Equivalent: "+ str(Naa)+"\n")
+    text_file.close()
+    #print "Na_Equivalent: "+ str(Naa)
 
     #Cost of mutation to determine if dominates bacteria
     #   to determine if it enters competition
@@ -57,7 +64,7 @@ def CCmut(h,nnIni):
         return C
 
     CC = Ca(Naa,nnIni,h)
-    print "CostA: "+ str(CC)
+    #print "CostA: "+ str(CC)
 
     return CC,Naa
 
@@ -76,12 +83,457 @@ def fixed(CA,Na):
     nF = 0
     if Q <= Prob:
         nF = Na
-        print "FIXED"
+
+        text_file = open("Graphs/Log_Mutation.txt", "a+")
+        n = text_file.write("FIXED \n")
+        text_file.close()
+        #print "FIXED"
     else:
-        print "NOT FIXED, TRY AGAIN"
+        text_file = open("Graphs/Log_Mutation.txt", "a+")
+        n = text_file.write("NOT FIXED, TRY AGAIN \n")
+        text_file.close()
+        #print "NOT FIXED, TRY AGAIN"
+
         CC, Naa = CCmut(h,nnIni)
         nF = fixed(CC,Naa)
+
     return nF
 
+
+
+#--------------------------------------------------
+#COMPETITION
+#--------------------------------------------------
+
+#Defines the reproduction function
+#Param: NN copy number that defines bacteria
+#Param: n number of bacteria
+#Return: evaluate reproduction function
+def repro(NN,n):
+    #Growth rate 1/25
+    G = 1.0/25.0
+    #Metabolic Cost plasmid (**)
+    cP = 6646.0
+    #Metabolic Cost bacteria
+    cB = 4639221.0
+    #Estimated benefit - to be measured
+    b = cP/cB
+    #Denominator
+    D = 1 + (NN/b)
+    #return
+    R = (n*G)/D
+
+    return R
+
+#BIRTH
+#Generates a reproduction decision A,B or None
+#Param: NNa copy number that defines bacteria type A
+#Param: A number of bacterias type A
+#Param: NNb copy number that defines bacteria type B
+#Param: B number of bacterias type B
+#Return: amount of A, B after reproduction decision
+def Birth(NNa,A,NNb,B):
+
+    #Total amount of bacteria
+    tot = float(A+B)
+
+    #Normalization factor
+    Pt = repro(NNa,A) + repro(NNb,B)
+
+    #Reproduction probablity type A
+    probA = repro(NNa,A)/Pt
+
+    #Reproduction probablity type B
+    probB = repro(NNb,B)/Pt
+
+    #Random number between 0-1
+    Q1 = np.random.random()
+
+    #Birth A
+    if Q1 <= probA:
+        A+= 1
+    #Birth B
+    else:
+        B += 1
+
+    #"else" none (implicit)
+
+    return A,B,probA,probB
+
+#Death
+#Generates a death decision A,B
+#Param: A number of bacterias type A
+#Param: B number of bacterias type B
+#Return: amount of A, B after death decision
+def Death(A,B):
+
+    #Normalized
+    #Threshold A
+    TDA = (0.5*A) / (0.5*A+0.5*B)
+
+    #Threshold B
+    TDB = (0.5*B) / (0.5*A+0.5*B)
+
+    #random number between 0-1
+    QQ = np.random.random()
+
+    #Either a death of A or B should happen
+    #Death A
+    if QQ <= TDA:
+        A = A-1
+
+    #Death B
+    else:
+        B = B-1
+
+    return A,B
+
+#Normalize
+#Normalizes the amount of Bacteria to 1
+#Param: AA amount of bacteria type A
+#Param: BB amount of bacteria type B
+#Return: cA, cB normalized amounts to 1
+def nor(AA,BB):
+    cA = AA / float(AA+BB)
+    cB = BB / float(AA+BB)
+    return cA, cB
+
+#Process
+#The whole process is performed
+#Param: inA initial amount of bacterias type A
+#Param: inB initial amount of bacterias type B
+#Param: NNa copy number that defines bacteria type A
+#Param: NNb copy number that defines bacteria type B
+#Return: pA, pB arrays with data of each event for the plasmids type A and B
+#Return: npA, npB normalized arrays with data of each event for the plasmids type A and B
+def Go(inA, inB, NNa, NNb):
+    #Stop marker to avoid infinite loops
+    S = 0
+
+    #Arrays with data of each event for the plasmids
+    pA = np.array([inA])
+    pB = np.array([inB])
+    #Normalization
+    cinA, cinB = nor(inA,inB)
+    npA = np.array([cinA])
+    npB = np.array([cinB])
+
+    #Upper and lower cuts for the normalized amount of plasmids
+    #  This avoids the code to run for amounts where the reproduction
+    #  probability is determined by 1/N (irrelevant for this project)
+    #tUP = 1 - (1/float(inA+inB))
+    #tDw = (1/float(inA+inB))
+    tUP = 0.75
+    tDw = 0.25
+
+    #Limit of number of events for the simulation
+    # this limit is called LEN
+    LEN = 400
+
+    #Markers to break loop
+    C1 = True
+    C2 = True
+
+    #Code will run while the length of the array is lower than the LEN limit
+    while len(npA) < LEN and S == 0:
+        #Condition 1 (Upper cuts both types)
+        if cinA >=tUP or cinB >= tUP:
+            C1 = False
+
+        #Condition 2 (Lower cuts both types)
+        if cinA <= tDw or cinB <= tDw:
+            C2 = False
+
+        #Condition 3
+        #Code will run as long as no plasmid takes completely over the population
+        if C1 == True and C2 == True and S ==0:
+            #Run whole process
+            #Primer for condition below
+            A,B,probA,probB = Birth(NNa,inA,NNb,inB)
+
+            #--------------BIRTH----------------
+
+            #There will be reproduction while reproduction probability
+            # is above 2%
+            while (probA >= 0.02 or probB >= 0.02) and S == 0:
+
+                A,B,probA,probB = Birth(NNa,inA,NNb,inB)
+                inA = A
+                inB = B
+                pA = np.append(pA,inA)
+                pB = np.append(pB,inB)
+
+                #Normalization
+                cinA, cinB = nor(inA,inB)
+                npA = np.append(npA,cinA)
+                npB = np.append(npB,cinB)
+
+                #Code will run while the length of the array is lower
+                # than the LEN limit
+                if len(npA) >= LEN:
+                    S = 1
+                    break
+
+                #Condition 1 (Upper cuts both types)
+                if cinA >= tUP or cinB >= tUP:
+                    C1 = False
+                #Condition 2 (Lower cuts both types)
+                if cinA <= tDw or cinB <= tDw:
+                    C2 = False
+                #If markers to break loop have been modified, break process
+                if (C1 != True or C2 != True):
+                    S = 1
+
+            #TOTAL amount of plasmids after REPRODUCTIVE PHASE
+            # this amount is called fixed
+            fixed = inA + inB
+
+
+            #--------------DEATH----------------
+
+            #Random death happens until half of fixed is reached
+            while (inA+inB > (fixed/2.0)) and S == 0:
+
+                A,B = Death(inA,inB)
+                inA = A
+                inB = B
+                pA = np.append(pA,inA)
+                pB = np.append(pB,inB)
+
+                #Normalization
+                cinA, cinB = nor(inA,inB)
+                npA = np.append(npA,cinA)
+                npB = np.append(npB,cinB)
+
+                #Code will run while the length of the array is lower
+                # than the LEN limit
+                if len(npA) >= LEN:
+                    S = 1
+                    break
+
+                #Condition 1 (Upper cuts both types)
+                if cinA >= tUP or cinB >= tUP:
+                    C1 = False
+                #Condition 2 (Lower cuts both types)
+                if cinA <= tDw or cinB <= tDw:
+                    C2 = False
+
+                #If markers to break loop have been modified, break process
+                if (C1 == False or C2 == False):
+                    S = 1
+
+
+        #Creation of normalized arrays
+        #Limits avoid the code to run for amounts where the reproduction
+        #  probability is determined by 1/N (irrelevant for this project)
+        #Upper normalized limit of plasmids
+        Unl = tUP
+        #Lower normalized limit of plasmids
+        Lnl = tDw
+
+        #Markers and conditions to break the loop
+        if C1 == False and C2 == False:
+            S = 0
+            if cinA <= Lnl:
+                 npA = np.append(npA,tDw)
+                 npB = np.append(npB,tUP)
+            elif cinA >= Unl:
+                 npA = np.append(npA,tUP)
+                 npB = np.append(npB,tDw)
+            elif cinB <= Lnl:
+                npA = np.append(npA,tUP)
+                npB = np.append(npB,tDw)
+            elif cinB >= Unl:
+                npA = np.append(npA,tDw)
+                npB = np.append(npB,tUP)
+
+            #General process
+            #Code will run while the length of the array is lower
+            # than the LEN limit
+            if len(npA) >= LEN:
+                S = 1
+                break
+
+        winA = 0
+        winB = 0
+        #Winner count
+        if npA[-1]>npB[-1]:
+            winA+=1
+        elif npA[-1]<npB[-1]:
+            winB+=1
+
+    #Results of the whole process
+    #pA, pB arrays with amount of plasmids for each event (type A and B)
+    #npA, npB arrays of pA and pB normalized to 1
+    #Wins of A or B
+    return pA, pB, npA, npB, winA, winB
+
+#--------REPETITION OF THE PROCESS & GRAPHS------------
+#Repetition of the process and corresponding graphs
+#Param: rounds times that the process is repeated +1
+#Param: rep repetitions of the same general simulation
+#Param: cc iteration of the current repetition
+#Param: inA initial amount of bacteria type A
+#Param: inB initial amount of bacteria type B
+#Param: NNa copy number that defines bacteria type A
+#Param: NNb copy number that defines bacteria type B
+#rep and cc are used to only graph one general simulation (optimization)
+#Return: winner of competition
+#Return: graphs
+def repetitionHist(rounds, rep, cc, inA, inB, NNa, NNb):
+    #Start measuring simulation time
+    t0 = time.time()
+
+    #Win Counts
+    FwinA = 0
+    FwinB = 0
+
+    #Return of Go function (check Go comments)
+    pA, pB, npA, npB, winA, winB = Go(inA, inB, NNa, NNb)
+
+    FwinA += winA
+    FwinB += winB
+
+    #Graph for first round simulation
+    # type A = blue   type B = green
+    plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
+    plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
+
+    #plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
+    #plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
+
+    #Subsequent rounds
+    for i in range(rounds):
+
+        #Return of Go function (check Go comments)
+        pA, pB, npA, npB, winA, winB = Go(inA, inB, NNa, NNb)
+
+        FwinA += winA
+        FwinB += winB
+
+        #Graph for simulations
+        # type A = blue   type B = green
+        plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
+        plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
+
+        #plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
+        #plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
+        #Condition to graph only 1 info
+        if (i == (rounds-1)) == True:
+            #Time of all the total simulation
+            tsim = round(time.time()-t0,3)
+            plt.plot(0,0, c = "b", label = "$N_{A}$ = " + str(NNa))
+            plt.plot(0,0, c = "g", label = "$N_{B}$ = " + str(NNb))
+            plt.plot(0,0, c = "b", linestyle = "--",label = "WinA = " + str(FwinA))
+            plt.plot(0,0, c = "g", linestyle = "--",label = "WinB = " + str(FwinB))
+            plt.plot(0,0, c = "y", label = "$t_{simu}$ = " + str(round(tsim,1))+"s")
+            #General simulation
+            plt.xlim((0,400))
+            plt.title("General simulation $N_{A}$ = "+str(NNa)+" vs $N_{B}$ = "+str(NNb)+" ($N_{ini}$="+str(inA)+")")
+            plt.xlabel("Events")
+            plt.ylabel("Normalized amount of Bacteria")
+            plt.legend(loc = 4, fontsize = "x-small")
+            plt.savefig("Graphs/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(inA) + ".png")
+            plt.clf()
+
+
+    text_file = open("Graphs/Results.txt", "a+")
+    n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(FwinA)+"\n")
+    n = text_file.write("Total Win B ("+str(NNb)+") = "+str(FwinB)+"\n")
+    text_file.close()
+
+    NF = -1
+    if FwinA > FwinB:
+        #nnIni = NNa
+        NF = NNa
+    elif FwinA < FwinB:
+        #nnIni = NNb
+        NF = NNb
+
+    return NF
+
+#--------------------------------------------------
+#EXECUTE
+#--------------------------------------------------
+
+#Initialization
+INN =500
+rounds =299
+
 CC, Naa = CCmut(h,nnIni)
-print fixed(CC,Naa)
+fix = fixed(CC,Naa)
+
+text_file = open("Graphs/Log_Mutation.txt", "a+")
+n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
+n = text_file.write("----------------------------- \n")
+text_file.close()
+
+text_file = open("Graphs/Results.txt", "a+")
+n1 = text_file.write("Ini: "+str(nnIni)+"\n")
+n = text_file.write("Fixed: "+str(fix)+"\n")
+text_file.close()
+
+WW = repetitionHist(rounds, 1, 0, INN, INN, fix, nnIni)
+
+text_file = open("Graphs/Results.txt", "a+")
+n1 = text_file.write("Win: "+str(WW)+"\n")
+n = text_file.write( "------------------- \n")
+text_file.close()
+
+IniR = np.array([nnIni])
+FIX = np.array([fix])
+WIN = np.array([WW])
+
+nnIni = WW
+
+"""
+while S==0:
+    CC, Naa = CCmut(h,nnIni)
+    fix = fixed(CC,Naa)
+    print "Fixed: "+str(fix)
+    WW = repetitionHist(599, 1, 0, 500, 500, fix, nnIni)
+    if (abs(nnIni-WW) < 2) and (abs(nnIni-fix) < 2):
+        S=1
+        break
+    nnIni = WW
+"""
+
+for i in range(9):
+    CC, Naa = CCmut(h,nnIni)
+    fix = fixed(CC,Naa)
+
+    text_file = open("Graphs/Log_Mutation.txt", "a+")
+    n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
+    n = text_file.write("----------------------------- \n")
+    text_file.close()
+
+    text_file = open("Graphs/Results.txt", "a+")
+    n1 = text_file.write("Ini: "+str(nnIni)+"\n")
+    n = text_file.write("Fixed: "+str(fix)+"\n")
+    text_file.close()
+
+    WW = repetitionHist(rounds, 1, 0, INN, INN, fix, nnIni)
+
+    text_file = open("Graphs/Results.txt", "a+")
+    n1 = text_file.write("Win: "+str(WW)+"\n")
+    n = text_file.write( "------------------- \n")
+    text_file.close()
+
+    IniR = np.append(IniR, nnIni)
+    FIX = np.append(FIX, fix)
+    WIN = np.append(WIN,WW)
+
+    nnIni = WW
+
+#Graphs
+plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
+plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
+plt.scatter(np.linspace(1,len(WIN), num = len(WIN)),WIN,c="r",edgecolors="none",s=70,label = "Winner")
+plt.title("General competitions ("+str(INN)+")")
+plt.xlabel("Events")
+plt.ylabel("Plasmid copy number of bacteria")
+plt.xlim(0,len(WIN)+1)
+plt.xticks(np.linspace(1,len(WIN), num = len(WIN)))
+plt.legend(loc = 2, fontsize = "x-small")
+plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + ".png")
+plt.clf()
