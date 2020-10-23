@@ -1,0 +1,120 @@
+Ini: 20
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 23.0
+Total Win A (23.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 9.0
+Total Win A (9.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 24.0
+Total Win A (24.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 24.0
+Total Win A (24.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 28.0
+Total Win A (28.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 30.0
+Total Win A (30.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 25.0
+Total Win A (25.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 9.0
+Total Win A (9.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 22.0
+Total Win A (22.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 9.0
+Total Win A (9.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 25.0
+Total Win A (25.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 22.0
+Total Win A (22.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 23.0
+Total Win A (23.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 
+Ini: 20
+Fixed: 23.0
+Total Win A (23.0) = 0
+Total Win B (20) = 1
+Win: 20
+------------------- 

@@ -3,12 +3,9 @@ import matplotlib.pyplot as plt
 import math
 import time
 
-# Number of groups
-NN = 1000
-#Hill coefficient
-h = 3.0
-#Initial n value
-nnIni = 20
+#------------------------------------
+#-------------FUNCTIONS--------------
+#------------------------------------
 
 #Generates probability value to determine if mutation dominates
 #   bacteria and will enter competition
@@ -113,7 +110,7 @@ def repro(NN,n):
     #Growth rate 1/25
     G = 1.0/25.0
     #Metabolic Cost plasmid (**)
-    cP = 6646.0
+    cP = 10000.0
     #Metabolic Cost bacteria
     cB = 4639221.0
     #Estimated benefit - to be measured
@@ -134,9 +131,6 @@ def repro(NN,n):
 #Return: amount of A, B after reproduction decision
 def Birth(NNa,A,NNb,B):
 
-    #Total amount of bacteria
-    tot = float(A+B)
-
     #Normalization factor
     Pt = repro(NNa,A) + repro(NNb,B)
 
@@ -149,14 +143,13 @@ def Birth(NNa,A,NNb,B):
     #Random number between 0-1
     Q1 = np.random.random()
 
+    #Either a Birth of A or B should happen
     #Birth A
     if Q1 <= probA:
         A+= 1
     #Birth B
     else:
         B += 1
-
-    #"else" none (implicit)
 
     return A,B,probA,probB
 
@@ -223,12 +216,12 @@ def Go(inA, inB, NNa, NNb):
     #  probability is determined by 1/N (irrelevant for this project)
     #tUP = 1 - (1/float(inA+inB))
     #tDw = (1/float(inA+inB))
-    tUP = 0.75
-    tDw = 0.25
+    tUP = 0.99
+    tDw = 0.01
 
     #Limit of number of events for the simulation
     # this limit is called LEN
-    LEN = 400
+    LEN = 10000
 
     #Markers to break loop
     C1 = True
@@ -254,8 +247,8 @@ def Go(inA, inB, NNa, NNb):
             #--------------BIRTH----------------
 
             #There will be reproduction while reproduction probability
-            # is above 2%
-            while (probA >= 0.02 or probB >= 0.02) and S == 0:
+            # is above 1.5%
+            while (probA >= 0.015 and probB >= 0.015) and S == 0:
 
                 A,B,probA,probB = Birth(NNa,inA,NNb,inB)
                 inA = A
@@ -368,8 +361,8 @@ def Go(inA, inB, NNa, NNb):
     #Wins of A or B
     return pA, pB, npA, npB, winA, winB
 
-#--------REPETITION OF THE PROCESS & GRAPHS------------
-#Repetition of the process and corresponding graphs
+#--------EXECUTE PROCESS & GRAPHS------------
+#Execute the process and corresponding graphs
 #Param: rounds times that the process is repeated +1
 #Param: rep repetitions of the same general simulation
 #Param: cc iteration of the current repetition
@@ -380,86 +373,70 @@ def Go(inA, inB, NNa, NNb):
 #rep and cc are used to only graph one general simulation (optimization)
 #Return: winner of competition
 #Return: graphs
-def repetitionHist(rounds, rep, cc, inA, inB, NNa, NNb):
+def proGraph(inA, inB, NNa, NNb):
     #Start measuring simulation time
     t0 = time.time()
-
-    #Win Counts
-    FwinA = 0
-    FwinB = 0
 
     #Return of Go function (check Go comments)
     pA, pB, npA, npB, winA, winB = Go(inA, inB, NNa, NNb)
 
-    FwinA += winA
-    FwinB += winB
-
     #Graph for first round simulation
     # type A = blue   type B = green
-    plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
-    plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
+    #plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
+    #plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
 
-    #plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
-    #plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
+    plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
+    plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
 
-    #Subsequent rounds
-    for i in range(rounds):
-
-        #Return of Go function (check Go comments)
-        pA, pB, npA, npB, winA, winB = Go(inA, inB, NNa, NNb)
-
-        FwinA += winA
-        FwinB += winB
-
-        #Graph for simulations
-        # type A = blue   type B = green
-        plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
-        plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
-
-        #plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
-        #plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
-        #Condition to graph only 1 info
-        if (i == (rounds-1)) == True:
-            #Time of all the total simulation
-            tsim = round(time.time()-t0,3)
-            plt.plot(0,0, c = "b", label = "$N_{A}$ = " + str(NNa))
-            plt.plot(0,0, c = "g", label = "$N_{B}$ = " + str(NNb))
-            plt.plot(0,0, c = "b", linestyle = "--",label = "WinA = " + str(FwinA))
-            plt.plot(0,0, c = "g", linestyle = "--",label = "WinB = " + str(FwinB))
-            plt.plot(0,0, c = "y", label = "$t_{simu}$ = " + str(round(tsim,1))+"s")
-            #General simulation
-            plt.xlim((0,400))
-            plt.title("General simulation $N_{A}$ = "+str(NNa)+" vs $N_{B}$ = "+str(NNb)+" ($N_{ini}$="+str(inA)+")")
-            plt.xlabel("Events")
-            plt.ylabel("Normalized amount of Bacteria")
-            plt.legend(loc = 4, fontsize = "x-small")
-            plt.savefig("Graphs/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(inA) + ".png")
-            plt.clf()
+    tsim = round(time.time()-t0,3)
+    plt.plot(0,0, c = "b", label = "$N_{A}$ = " + str(NNa))
+    plt.plot(0,0, c = "g", label = "$N_{B}$ = " + str(NNb))
+    plt.plot(0,0, c = "b", linestyle = "--",label = "WinA = " + str(winA))
+    plt.plot(0,0, c = "g", linestyle = "--",label = "WinB = " + str(winB))
+    plt.plot(0,0, c = "y", label = "$t_{simu}$ = " + str(round(tsim,1))+"s")
+    #General simulation
+    #plt.xlim((0,400))
+    #plt.ylim((0,4000))
+    plt.title("General simulation $N_{A}$ = "+str(NNa)+" vs $N_{B}$ = "+str(NNb)+" ($N_{ini}$="+str(inA)+")")
+    plt.xlabel("Events")
+    plt.ylabel("Normalized amount of Bacteria")
+    plt.legend(loc = 2, fontsize = "x-small")
+    plt.savefig("Graphs/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(pA[-1])+ "_" + str(pB[-1])+ ".png")
+    plt.clf()
 
 
     text_file = open("Graphs/Results.txt", "a+")
-    n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(FwinA)+"\n")
-    n = text_file.write("Total Win B ("+str(NNb)+") = "+str(FwinB)+"\n")
+    n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
+    n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
 
     NF = -1
-    if FwinA > FwinB:
+    if winA > winB:
         #nnIni = NNa
         NF = NNa
-    elif FwinA < FwinB:
+    elif winA < winB:
         #nnIni = NNb
         NF = NNb
 
     return NF
 
 #--------------------------------------------------
-#EXECUTE
+#--------------------EXECUTE-----------------------
 #--------------------------------------------------
 
-#Initialization
-INN =500
-rounds =299
+#Hill coefficient
+h = 3.0
+#Initial n value
+nnIni = 20
 
+#Initialization
+# Num of bacterias that are no mutation
+# Num of bacterias with mutation = 1
+# 2% chance reproduction mutation
+INN = 970
+inM = 30
+
+#Fix is the plasmid copy number of mutation
 CC, Naa = CCmut(h,nnIni)
 fix = fixed(CC,Naa)
 
@@ -473,7 +450,9 @@ n1 = text_file.write("Ini: "+str(nnIni)+"\n")
 n = text_file.write("Fixed: "+str(fix)+"\n")
 text_file.close()
 
-WW = repetitionHist(rounds, 1, 0, INN, INN, fix, nnIni)
+#proGraph(inA, inB, NNa, NNb)
+#Therefore, A is the mutation
+WW = proGraph(inM, INN, fix, nnIni)
 
 text_file = open("Graphs/Results.txt", "a+")
 n1 = text_file.write("Win: "+str(WW)+"\n")
@@ -498,7 +477,8 @@ while S==0:
     nnIni = WW
 """
 
-for i in range(9):
+for i in range(19):
+    #Fix is the plasmid copy number of mutation
     CC, Naa = CCmut(h,nnIni)
     fix = fixed(CC,Naa)
 
@@ -512,7 +492,9 @@ for i in range(9):
     n = text_file.write("Fixed: "+str(fix)+"\n")
     text_file.close()
 
-    WW = repetitionHist(rounds, 1, 0, INN, INN, fix, nnIni)
+    #proGraph(inA, inB, NNa, NNb)
+    #Therefore, A is the mutation
+    WW = proGraph(inM, INN, fix, nnIni)
 
     text_file = open("Graphs/Results.txt", "a+")
     n1 = text_file.write("Win: "+str(WW)+"\n")
