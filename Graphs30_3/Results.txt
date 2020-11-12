@@ -1,0 +1,102 @@
+Ini: 20
+Fixed: 15.0
+Total Win A (15.0) = 1
+Total Win B (20) = 0
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 19.0
+Total Win A (19.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 16.0
+Total Win A (16.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 18.0
+Total Win A (18.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 16.0
+Total Win A (16.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 21.0
+Total Win A (21.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 16.0
+Total Win A (16.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 17.0
+Total Win A (17.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 16.0
+Total Win A (16.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 16.0
+Total Win A (16.0) = 0
+Total Win B (15.0) = 1
+Win: 15.0
+------------------- 
+Ini: 15.0
+Fixed: 11.0
+Total Win A (11.0) = 1
+Total Win B (15.0) = 0
+Win: 11.0
+------------------- 
+Ini: 11.0
+Fixed: 13.0
+Total Win A (13.0) = 0
+Total Win B (11.0) = 1
+Win: 11.0
+------------------- 
+Ini: 11.0
+Fixed: 3.0
+Total Win A (3.0) = 1
+Total Win B (11.0) = 0
+Win: 3.0
+------------------- 
+Ini: 3.0
+Fixed: 4.0
+Total Win A (4.0) = 0
+Total Win B (3.0) = 1
+Win: 3.0
+------------------- 
+Ini: 3.0
+Fixed: 4.0
+Total Win A (4.0) = 0
+Total Win B (3.0) = 1
+Win: 3.0
+------------------- 
+Ini: 3.0
+Fixed: 4.0
+Total Win A (4.0) = 0
+Total Win B (3.0) = 1
+Win: 3.0
+------------------- 
+Ini: 3.0
+Fixed: 1.0
+Total Win A (1.0) = 1
+Total Win B (3.0) = 0
+Win: 1.0
+------------------- 

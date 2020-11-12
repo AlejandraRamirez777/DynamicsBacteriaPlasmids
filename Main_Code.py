@@ -216,12 +216,14 @@ def Go(inA, inB, NNa, NNb):
     #  probability is determined by 1/N (irrelevant for this project)
     #tUP = 1 - (1/float(inA+inB))
     #tDw = (1/float(inA+inB))
-    tUP = 0.99
-    tDw = 0.01
+    #0.99
+    #0.01
+    tUP = 0.9999
+    tDw = 0.0001
 
     #Limit of number of events for the simulation
     # this limit is called LEN
-    LEN = 10000
+    LEN = 30000
 
     #Markers to break loop
     C1 = True
@@ -240,80 +242,63 @@ def Go(inA, inB, NNa, NNb):
         #Condition 3
         #Code will run as long as no plasmid takes completely over the population
         if C1 == True and C2 == True and S ==0:
-            #Run whole process
-            #Primer for condition below
-            A,B,probA,probB = Birth(NNa,inA,NNb,inB)
 
             #--------------BIRTH----------------
+            A,B,probA,probB = Birth(NNa,inA,NNb,inB)
+            inA = A
+            inB = B
+            pA = np.append(pA,inA)
+            pB = np.append(pB,inB)
 
-            #There will be reproduction while reproduction probability
-            # is above 1.5%
-            while (probA >= 0.015 and probB >= 0.015) and S == 0:
+            #Normalization
+            cinA, cinB = nor(inA,inB)
+            npA = np.append(npA,cinA)
+            npB = np.append(npB,cinB)
 
-                A,B,probA,probB = Birth(NNa,inA,NNb,inB)
-                inA = A
-                inB = B
-                pA = np.append(pA,inA)
-                pB = np.append(pB,inB)
+            #Code will run while the length of the array is lower
+            # than the LEN limit
+            if len(npA) >= LEN:
+                S = 1
+                break
 
-                #Normalization
-                cinA, cinB = nor(inA,inB)
-                npA = np.append(npA,cinA)
-                npB = np.append(npB,cinB)
-
-                #Code will run while the length of the array is lower
-                # than the LEN limit
-                if len(npA) >= LEN:
-                    S = 1
-                    break
-
-                #Condition 1 (Upper cuts both types)
-                if cinA >= tUP or cinB >= tUP:
-                    C1 = False
-                #Condition 2 (Lower cuts both types)
-                if cinA <= tDw or cinB <= tDw:
-                    C2 = False
-                #If markers to break loop have been modified, break process
-                if (C1 != True or C2 != True):
-                    S = 1
-
-            #TOTAL amount of plasmids after REPRODUCTIVE PHASE
-            # this amount is called fixed
-            fixed = inA + inB
-
+            #Condition 1 (Upper cuts both types)
+            if cinA >= tUP or cinB >= tUP:
+                C1 = False
+            #Condition 2 (Lower cuts both types)
+            if cinA <= tDw or cinB <= tDw:
+                C2 = False
+            #If markers to break loop have been modified, break process
+            if (C1 != True or C2 != True):
+                S = 1
 
             #--------------DEATH----------------
+            A,B = Death(inA,inB)
+            inA = A
+            inB = B
+            pA = np.append(pA,inA)
+            pB = np.append(pB,inB)
 
-            #Random death happens until half of fixed is reached
-            while (inA+inB > (fixed/2.0)) and S == 0:
+            #Normalization
+            cinA, cinB = nor(inA,inB)
+            npA = np.append(npA,cinA)
+            npB = np.append(npB,cinB)
 
-                A,B = Death(inA,inB)
-                inA = A
-                inB = B
-                pA = np.append(pA,inA)
-                pB = np.append(pB,inB)
+            #Code will run while the length of the array is lower
+            # than the LEN limit
+            if len(npA) >= LEN:
+                S = 1
+                break
 
-                #Normalization
-                cinA, cinB = nor(inA,inB)
-                npA = np.append(npA,cinA)
-                npB = np.append(npB,cinB)
+            #Condition 1 (Upper cuts both types)
+            if cinA >= tUP or cinB >= tUP:
+                C1 = False
+            #Condition 2 (Lower cuts both types)
+            if cinA <= tDw or cinB <= tDw:
+                C2 = False
 
-                #Code will run while the length of the array is lower
-                # than the LEN limit
-                if len(npA) >= LEN:
-                    S = 1
-                    break
-
-                #Condition 1 (Upper cuts both types)
-                if cinA >= tUP or cinB >= tUP:
-                    C1 = False
-                #Condition 2 (Lower cuts both types)
-                if cinA <= tDw or cinB <= tDw:
-                    C2 = False
-
-                #If markers to break loop have been modified, break process
-                if (C1 == False or C2 == False):
-                    S = 1
+            #If markers to break loop have been modified, break process
+            if (C1 == False or C2 == False):
+                S = 1
 
 
         #Creation of normalized arrays
@@ -433,8 +418,8 @@ nnIni = 20
 # Num of bacterias that are no mutation
 # Num of bacterias with mutation = 1
 # 2% chance reproduction mutation
-INN = 970
-inM = 30
+INN = 990
+inM = 10
 
 #Fix is the plasmid copy number of mutation
 CC, Naa = CCmut(h,nnIni)
@@ -507,6 +492,9 @@ for i in range(19):
 
     nnIni = WW
 
+    if nnIni == 1:
+        break
+
 #Graphs
 plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
 plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
@@ -515,6 +503,7 @@ plt.title("General competitions ("+str(INN)+")")
 plt.xlabel("Events")
 plt.ylabel("Plasmid copy number of bacteria")
 plt.xlim(0,len(WIN)+1)
+plt.ylim(0,30)
 plt.xticks(np.linspace(1,len(WIN), num = len(WIN)))
 plt.legend(loc = 2, fontsize = "x-small")
 plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + ".png")
