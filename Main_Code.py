@@ -66,7 +66,7 @@ def CCmut(h,nnIni):
     return CC,Naa
 
 #Defines if mutation Na dominates bacteria and enters competition
-def fixed(CA,Na):
+def fixed(h,CA,Na,nnIni):
     Q = np.random.random()
     #Probability fixation
     if CA >= 0:
@@ -92,7 +92,7 @@ def fixed(CA,Na):
         #print "NOT FIXED, TRY AGAIN"
 
         CC, Naa = CCmut(h,nnIni)
-        nF = fixed(CC,Naa)
+        nF = fixed(h,CC,Naa,nnIni)
 
     return nF
 
@@ -114,7 +114,7 @@ def repro(NN,n):
     #Metabolic Cost bacteria
     cB = 4639221.0
     #Estimated benefit - to be measured
-    b = cP/cB
+    b = cB/cP
     #Denominator
     D = 1 + (NN/b)
     #return
@@ -355,10 +355,11 @@ def Go(inA, inB, NNa, NNb):
 #Param: inB initial amount of bacteria type B
 #Param: NNa copy number that defines bacteria type A
 #Param: NNb copy number that defines bacteria type B
+#Param: IT counter distribution
 #rep and cc are used to only graph one general simulation (optimization)
 #Return: winner of competition
 #Return: graphs
-def proGraph(inA, inB, NNa, NNb):
+def proGraph(inA, inB, NNa, NNb, IT):
     #Start measuring simulation time
     t0 = time.time()
 
@@ -386,11 +387,11 @@ def proGraph(inA, inB, NNa, NNb):
     plt.xlabel("Events")
     plt.ylabel("Normalized amount of Bacteria")
     plt.legend(loc = 2, fontsize = "x-small")
-    plt.savefig("Graphs/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(pA[-1])+ "_" + str(pB[-1])+ ".png")
+    plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(pA[-1])+ "_" + str(pB[-1])+ ".png")
     plt.clf()
 
 
-    text_file = open("Graphs/Results.txt", "a+")
+    text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
@@ -409,102 +410,116 @@ def proGraph(inA, inB, NNa, NNb):
 #--------------------EXECUTE-----------------------
 #--------------------------------------------------
 
-#Hill coefficient
-h = 3.0
-#Initial n value
-nnIni = 20
+#Execute full process with repetitions
+#Param: h Hill coefficient
+#Param: nnIni Initial amount of plasmids in bacteria
+#Param: INN Num of bacterias that are NO mutation
+#Param: inM Num of bacterias with mutation
+#Param: rep Times the competition is allowed +1
+#Param: disRep Times the whole process is repeated
+#return: final amount of plasmids in bacteria
+#return: graph with competitions
+def exe(h,nnIni,INN,inM,rep,disRep):
+    #Counter
+    IT = 1
+    #Array wins finale
+    WFin = np.array([])
+    #Loop for distribution repetitions
+    for i in range(disRep):
+        #Fix is the plasmid copy number of mutation
+        CC, Naa = CCmut(h,nnIni)
+        fix = fixed(h,CC,Naa,nnIni)
 
-#Initialization
-# Num of bacterias that are no mutation
-# Num of bacterias with mutation = 1
-# 2% chance reproduction mutation
-INN = 990
-inM = 10
+        text_file = open("Graphs"+str(IT)+"/Log_Mutation.txt", "a+")
+        n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
+        n = text_file.write("----------------------------- \n")
+        text_file.close()
 
-#Fix is the plasmid copy number of mutation
-CC, Naa = CCmut(h,nnIni)
-fix = fixed(CC,Naa)
+        text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+        n1 = text_file.write("Ini: "+str(nnIni)+"\n")
+        n = text_file.write("Fixed: "+str(fix)+"\n")
+        text_file.close()
 
-text_file = open("Graphs/Log_Mutation.txt", "a+")
-n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
-n = text_file.write("----------------------------- \n")
+        #proGraph(inA, inB, NNa, NNb)
+        #Therefore, A is the mutation
+        WW = proGraph(inM, INN, fix, nnIni, IT)
+
+        text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+        n1 = text_file.write("Win: "+str(WW)+"\n")
+        n = text_file.write( "------------------- \n")
+        text_file.close()
+
+        IniR = np.array([nnIni])
+        FIX = np.array([fix])
+        WIN = np.array([WW])
+
+        nnIni = WW
+
+        for i in range(rep):
+            #Fix is the plasmid copy number of mutation
+            CC, Naa = CCmut(h,nnIni)
+            fix = fixed(h,CC,Naa,nnIni)
+
+            text_file = open("Graphs"+str(IT)+"/Log_Mutation.txt", "a+")
+            n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
+            n = text_file.write("----------------------------- \n")
+            text_file.close()
+
+            text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+            n1 = text_file.write("Ini: "+str(nnIni)+"\n")
+            n = text_file.write("Fixed: "+str(fix)+"\n")
+            text_file.close()
+
+            #proGraph(inA, inB, NNa, NNb)
+            #Therefore, A is the mutation
+            WW = proGraph(inM, INN, fix, nnIni, IT)
+
+            text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+            n1 = text_file.write("Win: "+str(WW)+"\n")
+            n = text_file.write( "------------------- \n")
+            text_file.close()
+
+            IniR = np.append(IniR, nnIni)
+            FIX = np.append(FIX, fix)
+            WIN = np.append(WIN,WW)
+
+            nnIni = WW
+
+            if nnIni == 1:
+                break
+
+        #Graphs
+        plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
+        plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
+        plt.scatter(np.linspace(1,len(WIN), num = len(WIN)),WIN,c="r",edgecolors="none",s=70,label = "Winner")
+        plt.title("General competitions ("+str(INN)+")")
+        plt.xlabel("Events")
+        plt.ylabel("Plasmid copy number of bacteria")
+        plt.xlim(0,len(WIN)+1)
+        plt.ylim(0,40)
+        plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
+        plt.legend(loc = 2, fontsize = "x-small")
+        plt.savefig("Graphs"+str(IT)+"/Final_" + str(WIN[-1]) + "_" + str(INN) + ".png")
+        plt.clf()
+        WFin = np.append(WFin,WIN[-1])
+        IT+=1
+        #Pilas cambiar si se cambia
+        nnIni = 20
+    return WFin
+
+#exe(h,nnIni,INN,inM,rep,disRep)
+REP = 49
+DISREP = 100
+
+WinDis = exe(3.0,20,90,10,REP,DISREP)
+
+text_file = open("DisF.txt", "a+")
+n1 = text_file.write("WIN FINALE DIS\n")
+n = text_file.write(str(WinDis)+"\n")
 text_file.close()
 
-text_file = open("Graphs/Results.txt", "a+")
-n1 = text_file.write("Ini: "+str(nnIni)+"\n")
-n = text_file.write("Fixed: "+str(fix)+"\n")
-text_file.close()
-
-#proGraph(inA, inB, NNa, NNb)
-#Therefore, A is the mutation
-WW = proGraph(inM, INN, fix, nnIni)
-
-text_file = open("Graphs/Results.txt", "a+")
-n1 = text_file.write("Win: "+str(WW)+"\n")
-n = text_file.write( "------------------- \n")
-text_file.close()
-
-IniR = np.array([nnIni])
-FIX = np.array([fix])
-WIN = np.array([WW])
-
-nnIni = WW
-
-"""
-while S==0:
-    CC, Naa = CCmut(h,nnIni)
-    fix = fixed(CC,Naa)
-    print "Fixed: "+str(fix)
-    WW = repetitionHist(599, 1, 0, 500, 500, fix, nnIni)
-    if (abs(nnIni-WW) < 2) and (abs(nnIni-fix) < 2):
-        S=1
-        break
-    nnIni = WW
-"""
-
-for i in range(19):
-    #Fix is the plasmid copy number of mutation
-    CC, Naa = CCmut(h,nnIni)
-    fix = fixed(CC,Naa)
-
-    text_file = open("Graphs/Log_Mutation.txt", "a+")
-    n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
-    n = text_file.write("----------------------------- \n")
-    text_file.close()
-
-    text_file = open("Graphs/Results.txt", "a+")
-    n1 = text_file.write("Ini: "+str(nnIni)+"\n")
-    n = text_file.write("Fixed: "+str(fix)+"\n")
-    text_file.close()
-
-    #proGraph(inA, inB, NNa, NNb)
-    #Therefore, A is the mutation
-    WW = proGraph(inM, INN, fix, nnIni)
-
-    text_file = open("Graphs/Results.txt", "a+")
-    n1 = text_file.write("Win: "+str(WW)+"\n")
-    n = text_file.write( "------------------- \n")
-    text_file.close()
-
-    IniR = np.append(IniR, nnIni)
-    FIX = np.append(FIX, fix)
-    WIN = np.append(WIN,WW)
-
-    nnIni = WW
-
-    if nnIni == 1:
-        break
-
-#Graphs
-plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
-plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
-plt.scatter(np.linspace(1,len(WIN), num = len(WIN)),WIN,c="r",edgecolors="none",s=70,label = "Winner")
-plt.title("General competitions ("+str(INN)+")")
-plt.xlabel("Events")
-plt.ylabel("Plasmid copy number of bacteria")
-plt.xlim(0,len(WIN)+1)
-plt.ylim(0,30)
-plt.xticks(np.linspace(1,len(WIN), num = len(WIN)))
-plt.legend(loc = 2, fontsize = "x-small")
-plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + ".png")
-plt.clf()
+plt.hist(WinDis)
+plt.title("Distribution "+str(REP+1)+" events")
+plt.ylabel("Counts (total "+str(DISREP)+")")
+plt.xlabel("Amount of plasmids -fixated-")
+plt.savefig("Dis"+str(REP+1)+".png")

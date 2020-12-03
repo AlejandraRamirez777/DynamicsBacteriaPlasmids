@@ -1,0 +1,1495 @@
+DFE_value: -0.0443
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02182
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0105
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01231
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00412
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02263
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02774
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0395
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02406
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07717
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01526
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01468
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06499
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02381
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00651
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05908
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03791
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03004
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.011
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01982
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02589
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04929
+Na_Equivalent: 8.0
+FIXED 
+FIXED --> 8.0
+----------------------------- 
+DFE_value: -0.00353
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00262
+Na_Equivalent: 21.0
+FIXED 
+FIXED --> 21.0
+----------------------------- 
+DFE_value: -0.02967
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03178
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.02656
+Na_Equivalent: 34.0
+FIXED 
+FIXED --> 34.0
+----------------------------- 
+DFE_value: -0.0153
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02621
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03006
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01398
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02382
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01016
+Na_Equivalent: 24.0
+FIXED 
+FIXED --> 24.0
+----------------------------- 
+DFE_value: -0.02567
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05191
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02542
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07948
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02777
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01407
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00019
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00955
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00672
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03555
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02673
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02374
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02108
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01002
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02684
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00784
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05516
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01924
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02234
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0009
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03063
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07557
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03694
+Na_Equivalent: 10.0
+FIXED 
+FIXED --> 10.0
+----------------------------- 
+DFE_value: -0.02146
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06703
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00116
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00588
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03071
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03255
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03087
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02073
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01456
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07246
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05206
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02506
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01684
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01747
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00596
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02671
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00316
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0416
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04953
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00625
+Na_Equivalent: 23.0
+FIXED 
+FIXED --> 23.0
+----------------------------- 
+DFE_value: -0.00566
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0451
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03826
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00446
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07153
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03445
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01312
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07998
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0176
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00936
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03557
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01296
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00132
+Na_Equivalent: 21.0
+FIXED 
+FIXED --> 21.0
+----------------------------- 
+DFE_value: -0.0033
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02199
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02554
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05981
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00861
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03463
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02069
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0187
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04162
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01844
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00273
+Na_Equivalent: 22.0
+FIXED 
+FIXED --> 22.0
+----------------------------- 
+DFE_value: -0.0195
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0483
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02577
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01762
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01612
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0629
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01353
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00812
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05338
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01655
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00409
+Na_Equivalent: 24.0
+FIXED 
+FIXED --> 24.0
+----------------------------- 
+DFE_value: -0.0674
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02884
+Na_Equivalent: 12.0
+FIXED 
+FIXED --> 12.0
+----------------------------- 
+DFE_value: 0.00651
+Na_Equivalent: 25.0
+FIXED 
+FIXED --> 25.0
+----------------------------- 
+DFE_value: 0.00272
+Na_Equivalent: 23.0
+FIXED 
+FIXED --> 23.0
+----------------------------- 
+DFE_value: 0.00467
+Na_Equivalent: 24.0
+FIXED 
+FIXED --> 24.0
+----------------------------- 
+DFE_value: -0.01123
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.08088
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00374
+Na_Equivalent: 24.0
+FIXED 
+FIXED --> 24.0
+----------------------------- 
+DFE_value: -0.01381
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06393
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04779
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01963
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07728
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0327
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01074
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00939
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06868
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0149
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02814
+Na_Equivalent: 13.0
+FIXED 
+FIXED --> 13.0
+----------------------------- 
+DFE_value: -0.02377
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00175
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.07177
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03224
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0116
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00223
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00888
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00079
+Na_Equivalent: 22.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01308
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02244
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01123
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01652
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0228
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02191
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02348
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03461
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04918
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04553
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00813
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01129
+Na_Equivalent: 27.0
+FIXED 
+FIXED --> 27.0
+----------------------------- 
+DFE_value: 0.0066
+Na_Equivalent: 25.0
+FIXED 
+FIXED --> 25.0
+----------------------------- 
+DFE_value: -0.06771
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02531
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00035
+Na_Equivalent: 22.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01169
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03027
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02575
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.09051
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03825
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01093
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00813
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00891
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00209
+Na_Equivalent: 23.0
+FIXED 
+FIXED --> 23.0
+----------------------------- 
+DFE_value: -0.03702
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04967
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03011
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00955
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01628
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00897
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.11104
+Na_Equivalent: 2.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00882
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02152
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02618
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03761
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00271
+Na_Equivalent: 23.0
+FIXED 
+FIXED --> 23.0
+----------------------------- 
+DFE_value: -0.04376
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02759
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02233
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05288
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00881
+Na_Equivalent: 26.0
+FIXED 
+FIXED --> 26.0
+----------------------------- 
+DFE_value: -0.03879
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01907
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01878
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01541
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01282
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03395
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00657
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03352
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05204
+Na_Equivalent: 8.0
+FIXED 
+FIXED --> 8.0
+----------------------------- 
+DFE_value: -0.04531
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03662
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06952
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01511
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03876
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04442
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01464
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04781
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02374
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00219
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00266
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01326
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01939
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01332
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04537
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03454
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0144
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01916
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01097
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04366
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00537
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02105
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01166
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00967
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03446
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00653
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00463
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01979
+Na_Equivalent: 32.0
+FIXED 
+FIXED --> 32.0
+----------------------------- 
+DFE_value: -0.08413
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01971
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01174
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05526
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02367
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03669
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03981
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00793
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01579
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00757
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02742
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02109
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0153
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00302
+Na_Equivalent: 23.0
+FIXED 
+FIXED --> 23.0
+----------------------------- 
+DFE_value: -0.01551
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01343
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00482
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06991
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01455
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0101
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00237
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03063
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05795
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02868
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00883
+Na_Equivalent: 26.0
+FIXED 
+FIXED --> 26.0
+----------------------------- 
+DFE_value: -0.02168
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01524
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04049
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03615
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01868
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02114
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02262
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01026
+Na_Equivalent: 27.0
+FIXED 
+FIXED --> 27.0
+----------------------------- 
+DFE_value: -0.0367
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02669
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02089
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01061
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05289
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00024
+Na_Equivalent: 22.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01616
+Na_Equivalent: 30.0
+FIXED 
+FIXED --> 30.0
+----------------------------- 
+DFE_value: -0.02555
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05054
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02923
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00191
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00939
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.005
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00466
+Na_Equivalent: 24.0
+FIXED 
+FIXED --> 24.0
+----------------------------- 
+DFE_value: -0.12547
+Na_Equivalent: 2.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03365
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.08526
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01494
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01357
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03469
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00739
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01371
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03864
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02798
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00309
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01428
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0255
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02369
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05015
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03998
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05774
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00868
+Na_Equivalent: 19.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03106
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02411
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02399
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03776
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0663
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0317
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03017
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00559
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01484
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02725
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03924
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02291
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.02044
+Na_Equivalent: 33.0
+FIXED 
+FIXED --> 33.0
+----------------------------- 
+DFE_value: -0.01899
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02655
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03016
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04884
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03393
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00968
+Na_Equivalent: 27.0
+FIXED 
+FIXED --> 27.0
+----------------------------- 
+DFE_value: -0.03626
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02303
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02612
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03656
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01018
+Na_Equivalent: 27.0
+FIXED 
+FIXED --> 27.0
+----------------------------- 
+DFE_value: -0.00611
+Na_Equivalent: 20.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00298
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03145
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02632
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01922
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02042
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02687
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02123
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01367
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00344
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02592
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0576
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01529
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03231
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01204
+Na_Equivalent: 28.0
+FIXED 
+FIXED --> 28.0
+----------------------------- 
+DFE_value: -0.00216
+Na_Equivalent: 21.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01941
+Na_Equivalent: 15.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02487
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00893
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02181
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01094
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0428
+Na_Equivalent: 10.0
+FIXED 
+FIXED --> 10.0
+----------------------------- 
+DFE_value: -0.04631
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02544
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02752
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03803
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01376
+Na_Equivalent: 13.0
+FIXED 
+FIXED --> 13.0
+----------------------------- 
+DFE_value: -0.01128
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0411
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00291
+Na_Equivalent: 11.0
+FIXED 
+FIXED --> 11.0
+----------------------------- 
+DFE_value: -0.03183
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03027
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.08889
+Na_Equivalent: 2.0
+FIXED 
+FIXED --> 2.0
+----------------------------- 
+DFE_value: -0.01716
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03333
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03886
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01162
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01481
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02169
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00858
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01914
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00885
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00729
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0276
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01107
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01826
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02643
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00199
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03668
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02768
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06032
+Na_Equivalent: 3.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02877
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02474
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04939
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02779
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00922
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01434
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03325
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01314
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04325
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00216
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04997
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01457
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.0078
+Na_Equivalent: 12.0
+FIXED 
+FIXED --> 12.0
+----------------------------- 
+DFE_value: -0.0189
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00734
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04852
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03857
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01418
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03939
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01694
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00875
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03688
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03118
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01966
+Na_Equivalent: 7.0
+FIXED 
+FIXED --> 7.0
+----------------------------- 
+DFE_value: 0.00791
+Na_Equivalent: 12.0
+FIXED 
+FIXED --> 12.0
+----------------------------- 
+DFE_value: -0.01157
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03087
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00054
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01021
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06697
+Na_Equivalent: 3.0
+FIXED 
+FIXED --> 3.0
+----------------------------- 
+DFE_value: -0.01156
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00777
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02506
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05261
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04564
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01499
+Na_Equivalent: 16.0
+FIXED 
+FIXED --> 16.0
+----------------------------- 
+DFE_value: -0.01842
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03048
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00931
+Na_Equivalent: 14.0
+FIXED 
+FIXED --> 14.0
+----------------------------- 
+DFE_value: -0.03398
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02112
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00691
+Na_Equivalent: 16.0
+FIXED 
+FIXED --> 16.0
+----------------------------- 
+DFE_value: -0.02756
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0149
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02134
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02764
+Na_Equivalent: 8.0
+FIXED 
+FIXED --> 8.0
+----------------------------- 
+DFE_value: -0.02062
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00739
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01018
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00491
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02248
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00462
+Na_Equivalent: 15.0
+FIXED 
+FIXED --> 15.0
+----------------------------- 
+DFE_value: -0.02481
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03066
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04442
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02505
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0612
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01024
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01748
+Na_Equivalent: 20.0
+FIXED 
+FIXED --> 20.0
+----------------------------- 
+DFE_value: -0.02489
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01767
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02901
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04681
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02503
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00918
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02454
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00468
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00727
+Na_Equivalent: 16.0
+FIXED 
+FIXED --> 16.0
+----------------------------- 
+DFE_value: -0.03827
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04501
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03083
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01042
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00941
+Na_Equivalent: 17.0
+FIXED 
+FIXED --> 17.0
+----------------------------- 
+DFE_value: -0.05446
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04587
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04159
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00086
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05923
+Na_Equivalent: 4.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.0138
+Na_Equivalent: 18.0
+FIXED 
+FIXED --> 18.0
+----------------------------- 
+DFE_value: -0.00138
+Na_Equivalent: 18.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.069
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04163
+Na_Equivalent: 8.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02499
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02304
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01727
+Na_Equivalent: 13.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.01313
+Na_Equivalent: 14.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02805
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03538
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05204
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06146
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02422
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.06078
+Na_Equivalent: 5.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.04794
+Na_Equivalent: 7.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.05394
+Na_Equivalent: 6.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00755
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03727
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.0338
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03175
+Na_Equivalent: 10.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00466
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.03364
+Na_Equivalent: 9.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.00422
+Na_Equivalent: 17.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02263
+Na_Equivalent: 12.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.01903
+Na_Equivalent: 26.0
+FIXED 
+FIXED --> 26.0
+----------------------------- 
+DFE_value: -0.00582
+Na_Equivalent: 16.0
+NOT FIXED, TRY AGAIN 
+DFE_value: -0.02489
+Na_Equivalent: 11.0
+NOT FIXED, TRY AGAIN 
+DFE_value: 0.00525
+Na_Equivalent: 20.0
+FIXED 
+FIXED --> 20.0
+----------------------------- 

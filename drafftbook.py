@@ -78,3 +78,13 @@ print "-------"
 print True and True
 print True and False
 print False and False
+
+print np.linspace(1,50, 50/6.25)
+
+print range(49)
+
+plt.hist(np.array([7,6]))
+plt.title("Distribution "+str(50)+" events")
+plt.ylabel("Counts (total "+str(100)+")")
+plt.xlabel("Amount of plasmids -fixated-")
+plt.show()
