@@ -69,6 +69,7 @@ def Birth(NNa,A,NNb,B):
 
     return A,B,probA,probB
 
+"""
 print Birth(25,173,20,10823)
 
 print True or True
@@ -88,3 +89,16 @@ plt.title("Distribution "+str(50)+" events")
 plt.ylabel("Counts (total "+str(100)+")")
 plt.xlabel("Amount of plasmids -fixated-")
 plt.show()
+"""
+
+Diss = np.array([3,13,7,1,22,16,1,4,3,27,8,11,9,1,9,7,1,2,26,1,1,1,12,1,12,4,6,
+6,4,5,10,5,3,20,7,4,15,1,18,5,21,15,17,8,1,1,29,11,7,1])
+
+print Diss
+print Diss.size
+
+plt.hist(Diss,bins=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],align="left")
+plt.title("Distribution "+str(50)+" events")
+plt.ylabel("Counts (total "+str(50)+")")
+plt.xlabel("Amount of plasmids fixated")
+plt.savefig("DisK"+str(50)+".png")

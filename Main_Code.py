@@ -22,9 +22,11 @@ def CCmut(h,nnIni):
         return s
 
     SI = randDFE()
+    """
     text_file = open("Graphs/Log_Mutation.txt", "a+")
     n = text_file.write("DFE_value: " + str(SI)+"\n")
     text_file.close()
+    """
     #print "DFE_value: " + str(SI)
 
     #Na of mutation that arised
@@ -43,9 +45,11 @@ def CCmut(h,nnIni):
         return Na
 
     Naa = Na(SI,nnIni,h)
+    """
     text_file = open("Graphs/Log_Mutation.txt", "a+")
     n = text_file.write("Na_Equivalent: "+ str(Naa)+"\n")
     text_file.close()
+    """
     #print "Na_Equivalent: "+ str(Naa)
 
     #Cost of mutation to determine if dominates bacteria
@@ -81,14 +85,18 @@ def fixed(h,CA,Na,nnIni):
     if Q <= Prob:
         nF = Na
 
+        """
         text_file = open("Graphs/Log_Mutation.txt", "a+")
         n = text_file.write("FIXED \n")
         text_file.close()
+        """
         #print "FIXED"
     else:
+        """
         text_file = open("Graphs/Log_Mutation.txt", "a+")
         n = text_file.write("NOT FIXED, TRY AGAIN \n")
         text_file.close()
+        """
         #print "NOT FIXED, TRY AGAIN"
 
         CC, Naa = CCmut(h,nnIni)
@@ -371,6 +379,7 @@ def proGraph(inA, inB, NNa, NNb, IT):
     #plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
     #plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
 
+    """
     plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
     plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
 
@@ -390,8 +399,13 @@ def proGraph(inA, inB, NNa, NNb, IT):
     plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(pA[-1])+ "_" + str(pB[-1])+ ".png")
     plt.clf()
 
-
     text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+    n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
+    n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
+    text_file.close()
+    """
+
+    text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
@@ -430,12 +444,14 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         CC, Naa = CCmut(h,nnIni)
         fix = fixed(h,CC,Naa,nnIni)
 
+        """
         text_file = open("Graphs"+str(IT)+"/Log_Mutation.txt", "a+")
         n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
         n = text_file.write("----------------------------- \n")
         text_file.close()
+        """
 
-        text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+        text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
         n1 = text_file.write("Ini: "+str(nnIni)+"\n")
         n = text_file.write("Fixed: "+str(fix)+"\n")
         text_file.close()
@@ -444,7 +460,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         #Therefore, A is the mutation
         WW = proGraph(inM, INN, fix, nnIni, IT)
 
-        text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+        text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
         n1 = text_file.write("Win: "+str(WW)+"\n")
         n = text_file.write( "------------------- \n")
         text_file.close()
@@ -460,12 +476,14 @@ def exe(h,nnIni,INN,inM,rep,disRep):
             CC, Naa = CCmut(h,nnIni)
             fix = fixed(h,CC,Naa,nnIni)
 
+            """
             text_file = open("Graphs"+str(IT)+"/Log_Mutation.txt", "a+")
             n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
             n = text_file.write("----------------------------- \n")
             text_file.close()
+            """
 
-            text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+            text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
             n1 = text_file.write("Ini: "+str(nnIni)+"\n")
             n = text_file.write("Fixed: "+str(fix)+"\n")
             text_file.close()
@@ -474,7 +492,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
             #Therefore, A is the mutation
             WW = proGraph(inM, INN, fix, nnIni, IT)
 
-            text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
+            text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
             n1 = text_file.write("Win: "+str(WW)+"\n")
             n = text_file.write( "------------------- \n")
             text_file.close()
@@ -499,7 +517,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         plt.ylim(0,40)
         plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
         plt.legend(loc = 2, fontsize = "x-small")
-        plt.savefig("Graphs"+str(IT)+"/Final_" + str(WIN[-1]) + "_" + str(INN) + ".png")
+        plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
         plt.clf()
         WFin = np.append(WFin,WIN[-1])
         IT+=1
