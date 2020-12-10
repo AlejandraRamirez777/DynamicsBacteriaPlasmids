@@ -9,7 +9,7 @@ import time
 
 #Generates probability value to determine if mutation dominates
 #   bacteria and will enter competition
-def CCmut(h,nnIni):
+def NaMut(h,nnIni):
     #Random S according to DFE
     #Return: S of according to DFE
     def randDFE():
@@ -22,14 +22,8 @@ def CCmut(h,nnIni):
         return s
 
     SI = randDFE()
-    """
-    text_file = open("Graphs/Log_Mutation.txt", "a+")
-    n = text_file.write("DFE_value: " + str(SI)+"\n")
-    text_file.close()
-    """
-    #print "DFE_value: " + str(SI)
 
-    #Na of mutation that arised
+    #Turns s into Na of mutation that arised
     #Param: s Selection coefficient
     #Param: nn Nb (amount plasmids) of competition
     #Param: h Hill coefficient
@@ -39,35 +33,33 @@ def CCmut(h,nnIni):
         a = 0.029*h - 0.036
         #Na from cost formula
         Na = round(np.exp(s/a)*nI)
+
         #Ensure there are no bacteria without plasmids
-        if Na < 1.0:
-            Na = 1.0
-        return Na
+        if Na < 0.5:
+            R = NaMut(h,nI)
+        else:
+            R = Na
+        return R
 
     Naa = Na(SI,nnIni,h)
-    """
-    text_file = open("Graphs/Log_Mutation.txt", "a+")
-    n = text_file.write("Na_Equivalent: "+ str(Naa)+"\n")
-    text_file.close()
-    """
-    #print "Na_Equivalent: "+ str(Naa)
+    return Naa
 
-    #Cost of mutation to determine if dominates bacteria
-    #   to determine if it enters competition
-    #Param: Na of mutation
-    #Param: Nb of Initial
-    #Param: h Hill coefficient
-    #Return: cost of mutation
-    def Ca(Na,Nb,h):
-        #Constant alpha of cost formula
-        a = 0.029*h - 0.036
-        C = a*math.log(Nb/Na)
-        return C
+#Cost of mutation to determine if dominates bacteria
+#   to determine if it enters competition
+#Param: Na of mutation
+#Param: Nb of Initial
+#Param: h Hill coefficient
+#Return: cost of mutation
+def Ca(Na,Nb,h):
+    #Na = Nb no enter competition, cuz they are equal
+    while (Na - Nb) == 0:
+        Na = NaMut(h,Nb)
 
-    CC = Ca(Naa,nnIni,h)
-    #print "CostA: "+ str(CC)
+    #Constant alpha of cost formula
+    a = 0.029*h - 0.036
+    C = a*math.log(Nb/Na)
 
-    return CC,Naa
+    return C,Na
 
 #Defines if mutation Na dominates bacteria and enters competition
 def fixed(h,CA,Na,nnIni):
@@ -99,7 +91,8 @@ def fixed(h,CA,Na,nnIni):
         """
         #print "NOT FIXED, TRY AGAIN"
 
-        CC, Naa = CCmut(h,nnIni)
+        Na = NaMut(h,nnIni)
+        CC,Naa = Ca(Na,nnIni,h)
         nF = fixed(h,CC,Naa,nnIni)
 
     return nF
@@ -226,8 +219,8 @@ def Go(inA, inB, NNa, NNb):
     #tDw = (1/float(inA+inB))
     #0.99
     #0.01
-    tUP = 0.9999
-    tDw = 0.0001
+    tUP = 0.999
+    tDw = 0.001
 
     #Limit of number of events for the simulation
     # this limit is called LEN
@@ -441,7 +434,8 @@ def exe(h,nnIni,INN,inM,rep,disRep):
     #Loop for distribution repetitions
     for i in range(disRep):
         #Fix is the plasmid copy number of mutation
-        CC, Naa = CCmut(h,nnIni)
+        Na = NaMut(h,nnIni)
+        CC,Naa = Ca(Na,nnIni,h)
         fix = fixed(h,CC,Naa,nnIni)
 
         """
@@ -473,7 +467,8 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 
         for i in range(rep):
             #Fix is the plasmid copy number of mutation
-            CC, Naa = CCmut(h,nnIni)
+            Na = NaMut(h,nnIni)
+            CC,Naa = Ca(Na,nnIni,h)
             fix = fixed(h,CC,Naa,nnIni)
 
             """
@@ -503,9 +498,6 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 
             nnIni = WW
 
-            if nnIni == 1:
-                break
-
         #Graphs
         plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
         plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
@@ -527,13 +519,14 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 
 #exe(h,nnIni,INN,inM,rep,disRep)
 REP = 49
-DISREP = 100
+DISREP = 50
 
-WinDis = exe(3.0,20,90,10,REP,DISREP)
+WinDis = exe(3.0,5,90,10,REP,DISREP)
 
 text_file = open("DisF.txt", "a+")
 n1 = text_file.write("WIN FINALE DIS\n")
-n = text_file.write(str(WinDis)+"\n")
+for i in WinDis:
+    n = text_file.write(str(i)+"\n")
 text_file.close()
 
 plt.hist(WinDis)
