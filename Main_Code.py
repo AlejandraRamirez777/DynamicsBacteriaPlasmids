@@ -10,6 +10,9 @@ import time
 #Generates probability value to determine if mutation dominates
 #   bacteria and will enter competition
 def NaMut(h,nnIni):
+    text_file = open("Graphs/Log.txt", "a+")
+    n = text_file.write("nIni: "+str(nnIni)+" \n")
+    text_file.close()
     #Random S according to DFE
     #Return: S of according to DFE
     def randDFE():
@@ -20,8 +23,6 @@ def NaMut(h,nnIni):
         ss = np.random.gamma(shape,scale)
         s= round(-1*(ss-0.040),5)
         return s
-
-    SI = randDFE()
 
     #Turns s into Na of mutation that arised
     #Param: s Selection coefficient
@@ -36,11 +37,20 @@ def NaMut(h,nnIni):
 
         #Ensure there are no bacteria without plasmids
         if Na < 0.5:
+            text_file = open("Graphs/Log.txt", "a+")
+            n = text_file.write("Na: "+str(Na)+" \n")
+            text_file.close()
+
             R = NaMut(h,nI)
+
+            text_file = open("Graphs/Log.txt", "a+")
+            n = text_file.write("R: "+str(R)+" \n")
+            text_file.close()
         else:
             R = Na
         return R
 
+    SI = randDFE()
     Naa = Na(SI,nnIni,h)
     return Naa
 
@@ -518,10 +528,10 @@ def exe(h,nnIni,INN,inM,rep,disRep):
     return WFin
 
 #exe(h,nnIni,INN,inM,rep,disRep)
-REP = 49
+EVE = 49
 DISREP = 50
 
-WinDis = exe(3.0,5,90,10,REP,DISREP)
+WinDis = exe(3.0,5,90,10,EVE,DISREP)
 
 text_file = open("DisF.txt", "a+")
 n1 = text_file.write("WIN FINALE DIS\n")
@@ -530,7 +540,7 @@ for i in WinDis:
 text_file.close()
 
 plt.hist(WinDis)
-plt.title("Distribution "+str(REP+1)+" events")
+plt.title("Distribution "+str(EVE+1)+" events")
 plt.ylabel("Counts (total "+str(DISREP)+")")
 plt.xlabel("Amount of plasmids -fixated-")
-plt.savefig("Dis"+str(REP+1)+".png")
+plt.savefig("Dis"+str(EVE+1)+".png")
