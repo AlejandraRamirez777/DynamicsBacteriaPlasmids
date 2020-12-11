@@ -252,7 +252,7 @@ def Go(inA, inB, NNa, NNb):
 
         #Condition 3
         #Code will run as long as no plasmid takes completely over the population
-        if C1 == True and C2 == True and S ==0:
+        if (C1 == True) and (C2 == True) and (S == 0):
 
             #--------------BIRTH----------------
             A,B,probA,probB = Birth(NNa,inA,NNb,inB)
@@ -266,20 +266,22 @@ def Go(inA, inB, NNa, NNb):
             npA = np.append(npA,cinA)
             npB = np.append(npB,cinB)
 
+            """
             #Code will run while the length of the array is lower
             # than the LEN limit
             if len(npA) >= LEN:
                 S = 1
                 break
+            """
 
             #Condition 1 (Upper cuts both types)
-            if cinA >= tUP or cinB >= tUP:
+            if (cinA >= tUP) or (cinB >= tUP):
                 C1 = False
             #Condition 2 (Lower cuts both types)
-            if cinA <= tDw or cinB <= tDw:
+            if (cinA <= tDw) or (cinB <= tDw):
                 C2 = False
             #If markers to break loop have been modified, break process
-            if (C1 != True or C2 != True):
+            if (C1 != True) or (C2 != True):
                 S = 1
 
             #--------------DEATH----------------
@@ -294,24 +296,27 @@ def Go(inA, inB, NNa, NNb):
             npA = np.append(npA,cinA)
             npB = np.append(npB,cinB)
 
+            """
             #Code will run while the length of the array is lower
             # than the LEN limit
             if len(npA) >= LEN:
                 S = 1
                 break
+            """
 
             #Condition 1 (Upper cuts both types)
-            if cinA >= tUP or cinB >= tUP:
+            if (cinA >= tUP) or (cinB >= tUP):
                 C1 = False
             #Condition 2 (Lower cuts both types)
-            if cinA <= tDw or cinB <= tDw:
+            if (cinA <= tDw) or (cinB <= tDw):
                 C2 = False
 
             #If markers to break loop have been modified, break process
-            if (C1 == False or C2 == False):
+            if (C1 == False) or (C2 == False):
                 S = 1
 
 
+        """
         #Creation of normalized arrays
         #Limits avoid the code to run for amounts where the reproduction
         #  probability is determined by 1/N (irrelevant for this project)
@@ -342,14 +347,24 @@ def Go(inA, inB, NNa, NNb):
             if len(npA) >= LEN:
                 S = 1
                 break
+        """
 
         winA = 0
         winB = 0
         #Winner count
-        if npA[-1]>npB[-1]:
-            winA+=1
-        elif npA[-1]<npB[-1]:
-            winB+=1
+        if len(npA) == LEN+1:
+            Q = np.random.random()
+            probA = npA[-1]
+
+            if Q < probA:
+                winA+=1
+            else:
+                winB+=1
+        else:
+            if npA[-1]>npB[-1]:
+                winA+=1
+            elif npA[-1]<npB[-1]:
+                winB+=1
 
     #Results of the whole process
     #pA, pB arrays with amount of plasmids for each event (type A and B)
@@ -377,12 +392,28 @@ def proGraph(inA, inB, NNa, NNb, IT):
     #Return of Go function (check Go comments)
     pA, pB, npA, npB, winA, winB = Go(inA, inB, NNa, NNb)
 
+    text_file = open("Graphs/Log.txt", "a+")
+    n = text_file.write("pA: "+str(pA)+" \n")
+    text_file.close()
+
+    text_file = open("Graphs/Log.txt", "a+")
+    n = text_file.write("pB: "+str(pB)+" \n")
+    text_file.close()
+
+    text_file = open("Graphs/Log.txt", "a+")
+    n = text_file.write("npA: "+str(npA)+" \n")
+    text_file.close()
+
+    text_file = open("Graphs/Log.txt", "a+")
+    n = text_file.write("npB: "+str(npB)+" \n")
+    text_file.close()
+
     #Graph for first round simulation
     # type A = blue   type B = green
     #plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
     #plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
 
-    """
+
     plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
     plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
 
@@ -399,14 +430,16 @@ def proGraph(inA, inB, NNa, NNb, IT):
     plt.xlabel("Events")
     plt.ylabel("Normalized amount of Bacteria")
     plt.legend(loc = 2, fontsize = "x-small")
-    plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(pA[-1])+ "_" + str(pB[-1])+ ".png")
+    plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(time.time())+ ".png")
     plt.clf()
 
+    """
     text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
     """
+
 
     text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
@@ -519,11 +552,17 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         plt.ylim(0,40)
         plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
         plt.legend(loc = 2, fontsize = "x-small")
-        plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
+        plt.savefig("Graphs"+str(IT)+"/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
         plt.clf()
-        WFin = np.append(WFin,WIN[-1])
+        #Cambiar si se cambia events
+        WFin = np.append(WFin,WIN[40:50])
+        text_file = open("Graphs/Wins"+str(IT)+".txt", "a+")
+        n1 = text_file.write("Win: "+str(WIN[40:50])+"\n")
+        n = text_file.write( "------------------- \n")
+        text_file.close()
+
         IT+=1
-        #Pilas cambiar si se cambia
+        #PILAS CAMBIAR SI SE CAMBIAAAAA!!!!!!
         nnIni = 20
     return WFin
 
@@ -531,7 +570,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 EVE = 49
 DISREP = 50
 
-WinDis = exe(3.0,5,90,10,EVE,DISREP)
+WinDis = exe(3.0,20,90,10,EVE,DISREP)
 
 text_file = open("DisF.txt", "a+")
 n1 = text_file.write("WIN FINALE DIS\n")
