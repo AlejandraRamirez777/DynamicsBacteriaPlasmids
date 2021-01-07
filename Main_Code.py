@@ -10,9 +10,11 @@ import time
 #Generates probability value to determine if mutation dominates
 #   bacteria and will enter competition
 def NaMut(h,nnIni):
+    """
     text_file = open("Graphs/Log.txt", "a+")
     n = text_file.write("nIni: "+str(nnIni)+" \n")
     text_file.close()
+    """
     #Random S according to DFE
     #Return: S of according to DFE
     def randDFE():
@@ -37,15 +39,19 @@ def NaMut(h,nnIni):
 
         #Ensure there are no bacteria without plasmids
         if Na < 0.5:
+            """
             text_file = open("Graphs/Log.txt", "a+")
             n = text_file.write("Na: "+str(Na)+" \n")
             text_file.close()
+            """
 
             R = NaMut(h,nI)
 
+            """
             text_file = open("Graphs/Log.txt", "a+")
             n = text_file.write("R: "+str(R)+" \n")
             text_file.close()
+            """
         else:
             R = Na
         return R
@@ -121,7 +127,7 @@ def repro(NN,n):
     #Growth rate 1/25
     G = 1.0/25.0
     #Metabolic Cost plasmid (**)
-    cP = 10000.0
+    cP = 1000.0
     #Metabolic Cost bacteria
     cB = 4639221.0
     #Estimated benefit - to be measured
@@ -392,6 +398,7 @@ def proGraph(inA, inB, NNa, NNb, IT):
     #Return of Go function (check Go comments)
     pA, pB, npA, npB, winA, winB = Go(inA, inB, NNa, NNb)
 
+    """
     text_file = open("Graphs/Log.txt", "a+")
     n = text_file.write("pA: "+str(pA)+" \n")
     text_file.close()
@@ -413,7 +420,6 @@ def proGraph(inA, inB, NNa, NNb, IT):
     #plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
     #plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
 
-
     plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
     plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
 
@@ -433,18 +439,18 @@ def proGraph(inA, inB, NNa, NNb, IT):
     plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(time.time())+ ".png")
     plt.clf()
 
-    """
     text_file = open("Graphs"+str(IT)+"/Results.txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
-    """
+
 
 
     text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
+    """
 
     NF = -1
     if winA > winB:
@@ -486,21 +492,23 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
         n = text_file.write("----------------------------- \n")
         text_file.close()
-        """
 
         text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
         n1 = text_file.write("Ini: "+str(nnIni)+"\n")
         n = text_file.write("Fixed: "+str(fix)+"\n")
         text_file.close()
+        """
 
         #proGraph(inA, inB, NNa, NNb)
         #Therefore, A is the mutation
         WW = proGraph(inM, INN, fix, nnIni, IT)
 
+        """
         text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
         n1 = text_file.write("Win: "+str(WW)+"\n")
         n = text_file.write( "------------------- \n")
         text_file.close()
+        """
 
         IniR = np.array([nnIni])
         FIX = np.array([fix])
@@ -519,21 +527,24 @@ def exe(h,nnIni,INN,inM,rep,disRep):
             n1 = text_file.write("FIXED --> "+ str(fix)+"\n")
             n = text_file.write("----------------------------- \n")
             text_file.close()
-            """
+
 
             text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
             n1 = text_file.write("Ini: "+str(nnIni)+"\n")
             n = text_file.write("Fixed: "+str(fix)+"\n")
             text_file.close()
+            """
 
             #proGraph(inA, inB, NNa, NNb)
             #Therefore, A is the mutation
             WW = proGraph(inM, INN, fix, nnIni, IT)
 
+            """
             text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
             n1 = text_file.write("Win: "+str(WW)+"\n")
             n = text_file.write( "------------------- \n")
             text_file.close()
+            """
 
             IniR = np.append(IniR, nnIni)
             FIX = np.append(FIX, fix)
@@ -552,10 +563,11 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         plt.ylim(0,40)
         plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
         plt.legend(loc = 2, fontsize = "x-small")
-        plt.savefig("Graphs"+str(IT)+"/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
+        plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
         plt.clf()
         #Cambiar si se cambia events
         WFin = np.append(WFin,WIN[40:50])
+
         text_file = open("Graphs/Wins"+str(IT)+".txt", "a+")
         n1 = text_file.write("Win: "+str(WIN[40:50])+"\n")
         n = text_file.write( "------------------- \n")
@@ -568,7 +580,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 
 #exe(h,nnIni,INN,inM,rep,disRep)
 EVE = 49
-DISREP = 50
+DISREP = 100
 
 WinDis = exe(3.0,20,90,10,EVE,DISREP)
 
