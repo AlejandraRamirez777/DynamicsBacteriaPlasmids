@@ -568,10 +568,12 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         #Cambiar si se cambia events
         WFin = np.append(WFin,WIN[40:50])
 
+        """
         text_file = open("Graphs/Wins"+str(IT)+".txt", "a+")
         n1 = text_file.write("Win: "+str(WIN[40:50])+"\n")
         n = text_file.write( "------------------- \n")
         text_file.close()
+        """
 
         IT+=1
         #PILAS CAMBIAR SI SE CAMBIAAAAA!!!!!!
