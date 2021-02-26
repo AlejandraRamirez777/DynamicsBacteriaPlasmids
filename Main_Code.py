@@ -582,9 +582,11 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 
 #exe(h,nnIni,INN,inM,rep,disRep)
 EVE = 49
-DISREP = 100
+DISREP = 350
+MUT = 90
+NOR = 10
 
-WinDis = exe(3.0,20,90,10,EVE,DISREP)
+WinDis = exe(3.0,20,MUT,NOR,EVE,DISREP)
 
 text_file = open("DisF.txt", "a+")
 n1 = text_file.write("WIN FINALE DIS\n")
@@ -593,7 +595,8 @@ for i in WinDis:
 text_file.close()
 
 plt.hist(WinDis)
-plt.title("Distribution "+str(EVE+1)+" events")
+plt.title("Distribution "+str(EVE+1)+" events | REP "+str(DISREP)+" | Size "
++str(MUT+NOR),fontsize = "small" )
 plt.ylabel("Counts (total "+str(DISREP)+")")
 plt.xlabel("Amount of plasmids -fixated-")
 plt.savefig("Dis"+str(EVE+1)+".png")

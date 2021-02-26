@@ -42,4 +42,4 @@ def Gamma_Fit(name):
 
     plt.savefig("Fits/"+name+".png")
 
-Gamma_Fit("400_4")
+Gamma_Fit("S200_3")
