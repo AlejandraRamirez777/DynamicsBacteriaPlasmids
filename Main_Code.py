@@ -551,7 +551,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
             WIN = np.append(WIN,WW)
 
             nnIni = WW
-
+        """
         #Graphs
         plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
         plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
@@ -565,6 +565,7 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         plt.legend(loc = 2, fontsize = "x-small")
         plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
         plt.clf()
+        """
         #Cambiar si se cambia events
         WFin = np.append(WFin,WIN[40:50])
 
@@ -583,10 +584,10 @@ def exe(h,nnIni,INN,inM,rep,disRep):
 #exe(h,nnIni,INN,inM,rep,disRep)
 EVE = 49
 DISREP = 350
-MUT = 90
-NOR = 10
+NOR = 90
+MUT = 10
 
-WinDis = exe(3.0,20,MUT,NOR,EVE,DISREP)
+WinDis = exe(3.0,20,NOR,MUT,EVE,DISREP)
 
 text_file = open("DisF.txt", "a+")
 n1 = text_file.write("WIN FINALE DIS\n")
@@ -594,9 +595,12 @@ for i in WinDis:
     n = text_file.write(str(i)+"\n")
 text_file.close()
 
+"""
+#Histogram Graph
 plt.hist(WinDis)
 plt.title("Distribution "+str(EVE+1)+" events | REP "+str(DISREP)+" | Size "
 +str(MUT+NOR),fontsize = "small" )
 plt.ylabel("Counts (total "+str(DISREP)+")")
 plt.xlabel("Amount of plasmids -fixated-")
 plt.savefig("Dis"+str(EVE+1)+".png")
+"""
