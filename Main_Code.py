@@ -7,8 +7,11 @@ import time
 #-------------FUNCTIONS--------------
 #------------------------------------
 
-#Generates probability value to determine if mutation dominates
-#   bacteria and will enter competition
+#Generates Na given a Nb, utilizing the random s generated
+# and thesis formula
+#Param: h Hill coefficient
+#Param: nnIni amount of plasmids of competition
+#Return: amount of plasmids of the mutation
 def NaMut(h,nnIni):
     """
     text_file = open("Graphs/Log.txt", "a+")
@@ -28,7 +31,7 @@ def NaMut(h,nnIni):
 
     #Turns s into Na of mutation that arised
     #Param: s Selection coefficient
-    #Param: nn Nb (amount plasmids) of competition
+    #Param: nn Nb (amount plasmids) of original
     #Param: h Hill coefficient
     #Return: Na (amount plasmids) of mutation - Integer
     def Na(s,nI,h):
@@ -60,14 +63,13 @@ def NaMut(h,nnIni):
     Naa = Na(SI,nnIni,h)
     return Naa
 
-#Cost of mutation to determine if dominates bacteria
-#   to determine if it enters competition
+#Calculates cost of mutation to later determine if it enters competition in bacteria level
 #Param: Na of mutation
 #Param: Nb of Initial
 #Param: h Hill coefficient
-#Return: cost of mutation
+#Return: cost of mutation and Na
 def Ca(Na,Nb,h):
-    #Na = Nb no enter competition, cuz they are equal
+    #Na = Nb no enter competition because they are equal
     while (Na - Nb) == 0:
         Na = NaMut(h,Nb)
 
@@ -77,7 +79,12 @@ def Ca(Na,Nb,h):
 
     return C,Na
 
-#Defines if mutation Na dominates bacteria and enters competition
+#Defines if mutation Na dominates bacteria and enters collective competition
+#Param: h Hill Coefficient
+#Param: Ca cost of Mutation
+#Param: Na amount of mutations
+#Param: nnIni amount of original (Nb)
+#Return: Na that dominates bacteria and enters collective competition
 def fixed(h,CA,Na,nnIni):
     Q = np.random.random()
     #Probability fixation
@@ -85,7 +92,8 @@ def fixed(h,CA,Na,nnIni):
         Prob = CA
     elif CA < 0:
         Prob = 1+CA
-    #Normalization
+
+    #Normalization, just in case
     if Prob > 1.0:
         Prob = 1.0
 
@@ -98,14 +106,12 @@ def fixed(h,CA,Na,nnIni):
         n = text_file.write("FIXED \n")
         text_file.close()
         """
-        #print "FIXED"
     else:
         """
         text_file = open("Graphs/Log_Mutation.txt", "a+")
         n = text_file.write("NOT FIXED, TRY AGAIN \n")
         text_file.close()
         """
-        #print "NOT FIXED, TRY AGAIN"
 
         Na = NaMut(h,nnIni)
         CC,Naa = Ca(Na,nnIni,h)
@@ -114,15 +120,14 @@ def fixed(h,CA,Na,nnIni):
     return nF
 
 
-
 #--------------------------------------------------
 #COMPETITION
 #--------------------------------------------------
 
 #Defines the reproduction function
-#Param: NN copy number that defines bacteria
-#Param: n number of bacteria
-#Return: evaluate reproduction function
+#Param: NN plasmid copy number that defines bacteria
+#Param: n number of bacteria with specific NN plasmids
+#Return: evaluated reproduction function
 def repro(NN,n):
     #Growth rate 1/25
     G = 1.0/25.0
@@ -140,21 +145,22 @@ def repro(NN,n):
     return R
 
 #BIRTH
-#Generates a reproduction decision A,B or None
-#Param: NNa copy number that defines bacteria type A
+#Generates a reproduction decision A,B
+#Param: NNa plasmid copy number that defines bacteria type A
 #Param: A number of bacterias type A
-#Param: NNb copy number that defines bacteria type B
+#Param: NNb plasmid copy number that defines bacteria type B
 #Param: B number of bacterias type B
 #Return: amount of A, B after reproduction decision
+#Return: probA, probB birth probabilities of decision
 def Birth(NNa,A,NNb,B):
 
     #Normalization factor
     Pt = repro(NNa,A) + repro(NNb,B)
 
-    #Reproduction probablity type A
+    #Reproduction probability type A
     probA = repro(NNa,A)/Pt
 
-    #Reproduction probablity type B
+    #Reproduction probability type B
     probB = repro(NNb,B)/Pt
 
     #Random number between 0-1
@@ -170,7 +176,7 @@ def Birth(NNa,A,NNb,B):
 
     return A,B,probA,probB
 
-#Death
+#DEATH
 #Generates a death decision A,B
 #Param: A number of bacterias type A
 #Param: B number of bacterias type B
@@ -181,7 +187,7 @@ def Death(A,B):
     #Threshold A
     TDA = (0.5*A) / (0.5*A+0.5*B)
 
-    #Threshold B
+    #Threshold BD
     TDB = (0.5*B) / (0.5*A+0.5*B)
 
     #random number between 0-1
@@ -208,14 +214,17 @@ def nor(AA,BB):
     cB = BB / float(AA+BB)
     return cA, cB
 
-#Process
-#The whole process is performed
+#--------------------------------------------------
+#COMPETITION
+#--------------------------------------------------
+#The whole process of 1 competition is performed
 #Param: inA initial amount of bacterias type A
 #Param: inB initial amount of bacterias type B
-#Param: NNa copy number that defines bacteria type A
-#Param: NNb copy number that defines bacteria type B
+#Param: NNa plasmid copy number that defines bacteria type A
+#Param: NNb plasmid copy number that defines bacteria type B
 #Return: pA, pB arrays with data of each event for the plasmids type A and B
 #Return: npA, npB normalized arrays with data of each event for the plasmids type A and B
+#Return: winA, winB determines if A or B won bacteria competition (1 is win, 0 is lose)
 def Go(inA, inB, NNa, NNb):
     #Stop marker to avoid infinite loops
     S = 0
@@ -229,12 +238,6 @@ def Go(inA, inB, NNa, NNb):
     npB = np.array([cinB])
 
     #Upper and lower cuts for the normalized amount of plasmids
-    #  This avoids the code to run for amounts where the reproduction
-    #  probability is determined by 1/N (irrelevant for this project)
-    #tUP = 1 - (1/float(inA+inB))
-    #tDw = (1/float(inA+inB))
-    #0.99
-    #0.01
     tUP = 0.999
     tDw = 0.001
 
@@ -272,14 +275,6 @@ def Go(inA, inB, NNa, NNb):
             npA = np.append(npA,cinA)
             npB = np.append(npB,cinB)
 
-            """
-            #Code will run while the length of the array is lower
-            # than the LEN limit
-            if len(npA) >= LEN:
-                S = 1
-                break
-            """
-
             #Condition 1 (Upper cuts both types)
             if (cinA >= tUP) or (cinB >= tUP):
                 C1 = False
@@ -302,14 +297,6 @@ def Go(inA, inB, NNa, NNb):
             npA = np.append(npA,cinA)
             npB = np.append(npB,cinB)
 
-            """
-            #Code will run while the length of the array is lower
-            # than the LEN limit
-            if len(npA) >= LEN:
-                S = 1
-                break
-            """
-
             #Condition 1 (Upper cuts both types)
             if (cinA >= tUP) or (cinB >= tUP):
                 C1 = False
@@ -321,76 +308,38 @@ def Go(inA, inB, NNa, NNb):
             if (C1 == False) or (C2 == False):
                 S = 1
 
+    winA = 0
+    winB = 0
+    #Winner count
+    if len(npA) >= LEN:
+        Q = np.random.random()
+        probA = npA[-1]
 
-        """
-        #Creation of normalized arrays
-        #Limits avoid the code to run for amounts where the reproduction
-        #  probability is determined by 1/N (irrelevant for this project)
-        #Upper normalized limit of plasmids
-        Unl = tUP
-        #Lower normalized limit of plasmids
-        Lnl = tDw
-
-        #Markers and conditions to break the loop
-        if C1 == False and C2 == False:
-            S = 0
-            if cinA <= Lnl:
-                 npA = np.append(npA,tDw)
-                 npB = np.append(npB,tUP)
-            elif cinA >= Unl:
-                 npA = np.append(npA,tUP)
-                 npB = np.append(npB,tDw)
-            elif cinB <= Lnl:
-                npA = np.append(npA,tUP)
-                npB = np.append(npB,tDw)
-            elif cinB >= Unl:
-                npA = np.append(npA,tDw)
-                npB = np.append(npB,tUP)
-
-            #General process
-            #Code will run while the length of the array is lower
-            # than the LEN limit
-            if len(npA) >= LEN:
-                S = 1
-                break
-        """
-
-        winA = 0
-        winB = 0
-        #Winner count
-        if len(npA) == LEN+1:
-            Q = np.random.random()
-            probA = npA[-1]
-
-            if Q < probA:
-                winA+=1
-            else:
-                winB+=1
+        if Q <= probA:
+            winA+=1
         else:
-            if npA[-1]>npB[-1]:
-                winA+=1
-            elif npA[-1]<npB[-1]:
-                winB+=1
+            winB+=1
+    else:
+        if npA[-1]>npB[-1]:
+            winA+=1
+        elif npA[-1]<npB[-1]:
+            winB+=1
 
     #Results of the whole process
     #pA, pB arrays with amount of plasmids for each event (type A and B)
     #npA, npB arrays of pA and pB normalized to 1
-    #Wins of A or B
+    #Win of A or B (1 is win, 0 is lose)
     return pA, pB, npA, npB, winA, winB
 
-#--------EXECUTE PROCESS & GRAPHS------------
-#Execute the process and corresponding graphs
-#Param: rounds times that the process is repeated +1
-#Param: rep repetitions of the same general simulation
-#Param: cc iteration of the current repetition
+#--------EXECUTE GO & GRAPH of COMPETITION------------
+#Execute the Go function and creates the graph of the competition
 #Param: inA initial amount of bacteria type A
 #Param: inB initial amount of bacteria type B
 #Param: NNa copy number that defines bacteria type A
 #Param: NNb copy number that defines bacteria type B
 #Param: IT counter distribution
-#rep and cc are used to only graph one general simulation (optimization)
-#Return: winner of competition
-#Return: graphs
+#Return: winner of competition (value of NNa or NNb)
+#Return: graph of the competition
 def proGraph(inA, inB, NNa, NNb, IT):
     #Start measuring simulation time
     t0 = time.time()
@@ -415,26 +364,29 @@ def proGraph(inA, inB, NNa, NNb, IT):
     n = text_file.write("npB: "+str(npB)+" \n")
     text_file.close()
 
-    #Graph for first round simulation
+    #Normalized graph of competition
     # type A = blue   type B = green
-    #plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
-    #plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
+    plt.plot(np.linspace(0,len(npA), num = len(npA)), npA, c = "b")
+    plt.plot(np.linspace(0,len(npB), num = len(npB)), npB, c = "g")
 
-    plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
-    plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
+    #Not normalized graph of competition
+    #plt.plot(np.linspace(0,len(pA), num = len(pA)), pA, c = "b")
+    #plt.plot(np.linspace(0,len(pB), num = len(pB)), pB, c = "g")
 
     tsim = round(time.time()-t0,3)
+    #Labels
     plt.plot(0,0, c = "b", label = "$N_{A}$ = " + str(NNa))
     plt.plot(0,0, c = "g", label = "$N_{B}$ = " + str(NNb))
     plt.plot(0,0, c = "b", linestyle = "--",label = "WinA = " + str(winA))
     plt.plot(0,0, c = "g", linestyle = "--",label = "WinB = " + str(winB))
     plt.plot(0,0, c = "y", label = "$t_{simu}$ = " + str(round(tsim,1))+"s")
-    #General simulation
+    #General setting of graph
     #plt.xlim((0,400))
     #plt.ylim((0,4000))
-    plt.title("General simulation $N_{A}$ = "+str(NNa)+" vs $N_{B}$ = "+str(NNb)+" ($N_{ini}$="+str(inA)+")")
+    plt.title("Single competition $NN_{A}$="+str(NNa)+" vs $NN_{B}$="+str(NNb)+" ($n_{A}$="+str(inA)+"$n_{B}$="+str(inB)+")",fontsize="small")
     plt.xlabel("Events")
     plt.ylabel("Normalized amount of Bacteria")
+    #plt.ylabel("Amount of Bacteria")
     plt.legend(loc = 2, fontsize = "x-small")
     plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(time.time())+ ".png")
     plt.clf()
@@ -444,8 +396,6 @@ def proGraph(inA, inB, NNa, NNb, IT):
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
     text_file.close()
 
-
-
     text_file = open("Graphs/Results"+str(IT)+".txt", "a+")
     n1 = text_file.write("Total Win A ("+str(NNa)+") = "+str(winA)+"\n")
     n = text_file.write("Total Win B ("+str(NNb)+") = "+str(winB)+"\n")
@@ -454,12 +404,9 @@ def proGraph(inA, inB, NNa, NNb, IT):
 
     NF = -1
     if winA > winB:
-        #nnIni = NNa
         NF = NNa
     elif winA < winB:
-        #nnIni = NNb
         NF = NNb
-
     return NF
 
 #--------------------------------------------------
@@ -468,13 +415,13 @@ def proGraph(inA, inB, NNa, NNb, IT):
 
 #Execute full process with repetitions
 #Param: h Hill coefficient
-#Param: nnIni Initial amount of plasmids in bacteria
-#Param: INN Num of bacterias that are NO mutation
-#Param: inM Num of bacterias with mutation
-#Param: rep Times the competition is allowed +1
+#Param: nnIni Initial amount of plasmids in bacteria (nB)
+#Param: INN Num of bacterias that are NO mutation (NNb)
+#Param: inM Num of bacterias with mutation (nA)
+#Param: rep Times the competition is allowed +1 (dot graph)
 #Param: disRep Times the whole process is repeated
-#return: final amount of plasmids in bacteria
-#return: graph with competitions
+#return: final 10 values of fixed plasmids of all disRep in bacteria
+#return: graph with competitions - dot graphs
 def exe(h,nnIni,INN,inM,rep,disRep):
     #Counter
     IT = 1
@@ -482,6 +429,9 @@ def exe(h,nnIni,INN,inM,rep,disRep):
     WFin = np.array([])
     #Loop for distribution repetitions
     for i in range(disRep):
+        #1 INITIALIZATION ROUND
+
+        #Mutation generation
         #Fix is the plasmid copy number of mutation
         Na = NaMut(h,nnIni)
         CC,Naa = Ca(Na,nnIni,h)
@@ -510,13 +460,19 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         text_file.close()
         """
 
+        #Array of original NN (not the mutation)
         IniR = np.array([nnIni])
+        #Mutation that dominates bacteria and enters competition
         FIX = np.array([fix])
+        #Bacteria type (defined by its NN) that wins competition
         WIN = np.array([WW])
 
+        #The one who wins starts as original in the next round
+        #   to generate mutation
         nnIni = WW
 
         for i in range(rep):
+            #Mutation generation
             #Fix is the plasmid copy number of mutation
             Na = NaMut(h,nnIni)
             CC,Naa = Ca(Na,nnIni,h)
@@ -545,12 +501,17 @@ def exe(h,nnIni,INN,inM,rep,disRep):
             n = text_file.write( "------------------- \n")
             text_file.close()
             """
-
+            #Array of original NN (not the mutation)
             IniR = np.append(IniR, nnIni)
+            #Mutation that dominates bacteria and enters competition
             FIX = np.append(FIX, fix)
+            #Bacteria type (defined by its NN) that wins competition
             WIN = np.append(WIN,WW)
 
+            #The one who wins starts as original in the next round
+            #   to generate mutation
             nnIni = WW
+
         """
         #Graphs
         plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
@@ -560,47 +521,40 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         plt.xlabel("Events")
         plt.ylabel("Plasmid copy number of bacteria")
         plt.xlim(0,len(WIN)+1)
-        plt.ylim(0,40)
+        plt.ylim(0,np.amax(FIX)+1)
         plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
         plt.legend(loc = 2, fontsize = "x-small")
         plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
         plt.clf()
         """
-        #Cambiar si se cambia events
-        WFin = np.append(WFin,WIN[40:50])
-
-        """
-        text_file = open("Graphs/Wins"+str(IT)+".txt", "a+")
-        n1 = text_file.write("Win: "+str(WIN[40:50])+"\n")
-        n = text_file.write( "------------------- \n")
-        text_file.close()
-        """
-
         IT+=1
-        #PILAS CAMBIAR SI SE CAMBIAAAAA!!!!!!
+
+        #-----------------------------------------
+        #WARNING CHANGING VALUES
+        #-----------------------------------------
+
+        #CHANGE IF EVENTS OF DOT GRAPHS ARE CHANGED!!!
+        #   (last 10 value of 50 dot graphs events)
+        WFin = np.append(WFin,WIN[40:50])
+        #CHANGE IF INITIAL AMOUNT OF ORIGINAL BACTERIA TYPE IS CHANGED!!!
         nnIni = 20
     return WFin
 
-#exe(h,nnIni,INN,inM,rep,disRep)
+#---------------------------------------------------
+#VALUES TO RUN THE SIMULATION
+#---------------------------------------------------
 EVE = 49
 DISREP = 350
 NOR = 90
 MUT = 10
 
+#exe(h,nnIni,INN,inM,rep,disRep)
 WinDis = exe(3.0,20,NOR,MUT,EVE,DISREP)
 
+#Print info of distribution in a DisF.txt
+#   The first line is header - do not take into account in calculations
 text_file = open("DisF.txt", "a+")
 n1 = text_file.write("WIN FINALE DIS\n")
 for i in WinDis:
     n = text_file.write(str(i)+"\n")
 text_file.close()
-
-"""
-#Histogram Graph
-plt.hist(WinDis)
-plt.title("Distribution "+str(EVE+1)+" events | REP "+str(DISREP)+" | Size "
-+str(MUT+NOR),fontsize = "small" )
-plt.ylabel("Counts (total "+str(DISREP)+")")
-plt.xlabel("Amount of plasmids -fixated-")
-plt.savefig("Dis"+str(EVE+1)+".png")
-"""
