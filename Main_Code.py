@@ -383,11 +383,11 @@ def proGraph(inA, inB, NNa, NNb, IT):
     #General setting of graph
     #plt.xlim((0,400))
     #plt.ylim((0,4000))
-    plt.title("Single competition $NN_{A}$="+str(NNa)+" vs $NN_{B}$="+str(NNb)+" ($n_{A}$="+str(inA)+"$n_{B}$="+str(inB)+")",fontsize="small")
+    plt.title("Single competition $NN_{A}$="+str(NNa)+" vs $NN_{B}$="+str(NNb)+" ($n_{A}$="+str(inA)+" | $n_{B}$="+str(inB)+")",fontsize="small")
     plt.xlabel("Events")
     plt.ylabel("Normalized amount of Bacteria")
     #plt.ylabel("Amount of Bacteria")
-    plt.legend(loc = 2, fontsize = "x-small")
+    plt.legend(loc = 2, fontsize = "x-small",framealpha=0.8)
     plt.savefig("Graphs"+str(IT)+"/Graph_" + str(NNa) + "_" + str(NNb) + "_" + str(time.time())+ ".png")
     plt.clf()
 
@@ -517,13 +517,13 @@ def exe(h,nnIni,INN,inM,rep,disRep):
         plt.scatter(np.linspace(1,len(IniR), num = len(IniR)),IniR,c="k")
         plt.scatter(np.linspace(1,len(FIX), num = len(FIX)),FIX,c="k",label = "Contender")
         plt.scatter(np.linspace(1,len(WIN), num = len(WIN)),WIN,c="r",edgecolors="none",s=70,label = "Winner")
-        plt.title("General competitions ("+str(INN)+")")
+        plt.title("General competitions (Size "+str(INN+inM)+")"")
         plt.xlabel("Events")
         plt.ylabel("Plasmid copy number of bacteria")
         plt.xlim(0,len(WIN)+1)
         plt.ylim(0,np.amax(FIX)+1)
-        plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
-        plt.legend(loc = 2, fontsize = "x-small")
+        #plt.xticks(np.linspace(1,len(WIN), num = len(WIN)/6.25))
+        plt.legend(loc = 2, fontsize = "x-small",framealpha=0.8)
         plt.savefig("Graphs/Final_" + str(WIN[-1]) + "_" + str(INN) + "_"+str(IT)+".png")
         plt.clf()
         """
@@ -549,6 +549,8 @@ NOR = 90
 MUT = 10
 
 #exe(h,nnIni,INN,inM,rep,disRep)
+#rep+1 are the number of events in the dot graph
+#disRep is the number of dot graphs generated
 WinDis = exe(3.0,20,NOR,MUT,EVE,DISREP)
 
 #Print info of distribution in a DisF.txt
